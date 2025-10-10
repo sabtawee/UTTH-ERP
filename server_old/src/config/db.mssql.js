@@ -23,7 +23,6 @@ const erpConfig = {
   pool: { max: 10, min: 0, idleTimeoutMillis: 30000 },
 };
 
-
 const mesPool = new sql.ConnectionPool(mesConfig);
 const erpPool = new sql.ConnectionPool(erpConfig);
 

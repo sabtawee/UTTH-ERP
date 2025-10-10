@@ -15,10 +15,10 @@ const app = express();
 // const authRoutes = require("./src/core/auth/auth.routes");
 // const roleRoutes = require("./src/core/role/role.routes");
 // const permissionRoutes = require("./src/core/permission/permission.routes");
-// const userRoutes = require("./src/core/user/user.routes");
+const userRoutes = require("./src/core/user/user.routes");
 
 //modules
-const usergroupRouter = require('./src/modules/usergroups/usergroup.route');
+// const usergroupRouter = require('./src/modules/usergroups/usergroup.route');
 
 dotenv.config();
 const server = http.createServer(app);
@@ -90,21 +90,21 @@ app.get("/", (req, res) => {
 // app.use("/api/user", userRoutes);
 
 // modules
-app.use('/api/usergroups', usergroupRouter);
+// app.use('/api/usergroups', usergroupRouter);
 
 
 let onlineUsers = 0;
 
-io.on("connection", (socket) => {
-  onlineUsers++;
-  console.log(`A user connected. Total: ${onlineUsers}`);
-  io.emit("onlineUsers", onlineUsers);
-  socket.on("disconnect", () => {
-    onlineUsers--;
-    console.log(`A user disconnected. Total: ${onlineUsers}`);
-    io.emit("onlineUsers", onlineUsers);
-  });
-});
+// io.on("connection", (socket) => {
+//   onlineUsers++;
+//   console.log(`A user connected. Total: ${onlineUsers}`);
+//   io.emit("onlineUsers", onlineUsers);
+//   socket.on("disconnect", () => {
+//     onlineUsers--;
+//     console.log(`A user disconnected. Total: ${onlineUsers}`);
+//     io.emit("onlineUsers", onlineUsers);
+//   });
+// });
 //  Start Server
 server.listen(process.env.PORT, () => {
   console.log(
