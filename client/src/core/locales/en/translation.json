@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "Dashboard",
+    "admin": "Admin Management",
+    "master": "Master Management",
+    "basic": "Basic Information"
+  },
+  "admin_menu": {
+    "user_management": "User Management",
+    "role_management": "Role Management",
+    "permission_management": "Permission Management"
+  },
+  "master_menu": {
+    "process_management": "Process Management",
+    "product_management": "Product Management"
+  },
+  "basic_info": {
+    "account": "Account Management"
+  }
+}

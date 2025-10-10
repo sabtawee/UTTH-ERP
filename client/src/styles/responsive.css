@@ -1,0 +1,277 @@
+/* Responsive Styles for UTTH-MES Components */
+
+/* Global Responsive Content */
+.responsive-content {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
+/* Mobile First Approach */
+@media (max-width: 767px) {
+  /* Mobile styles */
+  .responsive-content {
+    padding: 8px;
+  }
+  
+  /* Hide text on mobile navbar */
+  .navbar-mobile-hide {
+    display: none !important;
+  }
+  
+  /* Compact spacing on mobile */
+  .mobile-compact {
+    padding: 8px !important;
+    margin: 4px !important;
+  }
+  
+  /* Mobile sidebar drawer */
+  .mobile-drawer .ant-drawer-body {
+    padding: 0;
+  }
+  
+  /* Mobile content adjustments */
+  .mobile-content {
+    margin: 8px !important;
+    padding: 12px !important;
+    border-radius: 8px !important;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet styles */
+  .responsive-content {
+    padding: 16px;
+  }
+  
+  /* Tablet sidebar adjustments */
+  .tablet-sidebar {
+    width: 240px !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  /* Desktop styles */
+  .responsive-content {
+    padding: 24px;
+  }
+  
+  /* Desktop sidebar full width */
+  .desktop-sidebar {
+    width: 280px !important;
+  }
+}
+
+/* Component Specific Responsive Styles */
+
+/* Sidebar Responsive */
+.sidebar-responsive {
+  transition: all 0.3s ease;
+}
+
+.sidebar-responsive.collapsed {
+  width: 80px !important;
+}
+
+/* Navbar Responsive */
+.navbar-responsive {
+  transition: all 0.3s ease;
+}
+
+.navbar-responsive .ant-space {
+  gap: 8px !important;
+}
+
+@media (max-width: 640px) {
+  .navbar-responsive .ant-space {
+    gap: 4px !important;
+  }
+}
+
+/* Footer Responsive */
+.footer-responsive {
+  transition: all 0.3s ease;
+}
+
+@media (max-width: 767px) {
+  .footer-responsive {
+    padding: 16px 20px !important;
+  }
+  
+  .footer-responsive .max-w-6xl {
+    max-width: 100% !important;
+  }
+}
+
+/* Content Area Responsive */
+.content-responsive {
+  transition: all 0.3s ease;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Glass Morphism Effects */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Responsive Grid */
+.responsive-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: 1fr;
+}
+
+@media (min-width: 640px) {
+  .responsive-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .responsive-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Responsive Typography */
+.responsive-title {
+  font-size: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .responsive-title {
+    font-size: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-title {
+    font-size: 1.875rem;
+  }
+}
+
+/* Responsive Spacing */
+.responsive-padding {
+  padding: 12px;
+}
+
+@media (min-width: 768px) {
+  .responsive-padding {
+    padding: 20px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-padding {
+    padding: 24px;
+  }
+}
+
+/* Responsive Margin */
+.responsive-margin {
+  margin: 8px;
+}
+
+@media (min-width: 768px) {
+  .responsive-margin {
+    margin: 12px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .responsive-margin {
+    margin: 16px;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.slide-in {
+  animation: slideIn 0.3s ease-in-out;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover Effects */
+.hover-scale {
+  transition: transform 0.2s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.02);
+}
+
+.hover-shadow {
+  transition: box-shadow 0.2s ease;
+}
+
+.hover-shadow:hover {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Focus States */
+.focus-visible {
+  outline: 2px solid #3b82f6;
+  outline-offset: 2px;
+}
+
+/* Loading States */
+.loading-skeleton {
+  background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+  background-size: 200% 100%;
+  animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .no-print {
+    display: none !important;
+  }
+  
+  .print-full-width {
+    width: 100% !important;
+    max-width: none !important;
+  }
+}

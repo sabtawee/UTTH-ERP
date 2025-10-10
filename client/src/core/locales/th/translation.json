@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "แดชบอร์ด",
+    "admin": "การจัดการผู้ดูแลระบบ",
+    "master": "การจัดการข้อมูลหลัก",
+    "basic": "ข้อมูลพื้นฐาน"
+  },
+  "admin_menu": {
+    "user_management": "การจัดการผู้ใช้",
+    "role_management": "การจัดการบทบาท",
+    "permission_management": "การจัดการสิทธิ์"
+  },
+  "master_menu": {
+    "process_management": "การจัดการกระบวนการ",
+    "product_management": "การจัดการผลิตภัณฑ์"
+  },
+  "basic_menu": {
+    "account": "ข้อมูลบัญชีผู้ใช้"
+  }
+}

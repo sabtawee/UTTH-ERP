@@ -1,0 +1,20 @@
+{
+  "menu": {
+    "dashboard": "仪表盘",
+    "admin": "管理员管理",
+    "master": "主数据管理",
+    "basic": "基本信息"
+  },
+  "admin_menu": {
+    "user_management": "用户管理",
+    "role_management": "角色管理",
+    "permission_management": "权限管理"
+  },
+  "master_menu": {
+    "process_management": "流程管理",
+    "product_management": "产品管理"
+  },
+  "basic_info": {
+    "account": "账户管理"
+  }
+}
