@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const instance = axios.create({
-  baseURL: "http://localhost:3301", // แก้ให้ตรงกับ backend
+  baseURL: import.meta.env.VITE_SOCKET_URL,
 });
 
 

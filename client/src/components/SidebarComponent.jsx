@@ -144,38 +144,10 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
           .filter(Boolean),
       ],
     },
-    hasPermission("User.view") && {
-      key: "basic-information",
-      icon: <FileTextOutlined />,
-      label: t("menu.basic"),
-      children: [
-        // ...mt_processNav
-        //   .map(
-        //     (navItem) =>
-        //       hasPermission(navItem.permission) && {
-        //         ...navItem,
-        //         label: t(`basic_info.${navItem.label}`),
-        //         onClick: () => {
-        //           console.log(`Navigating to ${navItem.path}`);
-        //           navigate(navItem.path);
-        //         },
-        //       }
-        //   )
-        //   .filter(Boolean),
-      ],
-    },
+
     {
       type: "divider",
     },
-    // {
-    //   key: "settings",
-    //   icon: <SettingOutlined />,
-    //   label: "System Settings",
-    //   onClick: () => {
-    //     console.log("Navigating to /settings");
-    //     navigate("/settings");
-    //   },
-    // },
     {
       key: "logout",
       icon: <LogoutOutlined />,
