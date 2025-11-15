@@ -123,250 +123,17 @@ exports.Prisma.TransactionIsolationLevel = makeStrictEnum({
   Snapshot: 'Snapshot'
 });
 
-exports.Prisma.AssetScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  serialNumber: 'serialNumber',
-  assetTag: 'assetTag',
-  type: 'type',
-  brand: 'brand',
-  model: 'model',
-  spec: 'spec',
-  purchaseDate: 'purchaseDate',
-  warrantyUntil: 'warrantyUntil',
-  location: 'location',
-  status: 'status',
-  ownerId: 'ownerId'
-};
-
-exports.Prisma.AssetHistoryScalarFieldEnum = {
-  id: 'id',
-  assetId: 'assetId',
-  oldOwnerId: 'oldOwnerId',
-  newOwnerId: 'newOwnerId',
-  changedAt: 'changedAt',
-  reason: 'reason'
-};
-
-exports.Prisma.AuditLogScalarFieldEnum = {
-  id: 'id',
-  action: 'action',
-  tableName: 'tableName',
-  recordId: 'recordId',
-  oldValue: 'oldValue',
-  newValue: 'newValue',
-  userId: 'userId',
-  ipAddress: 'ipAddress',
-  userAgent: 'userAgent',
-  timestamp: 'timestamp'
-};
-
-exports.Prisma.ContractScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  contractNo: 'contractNo',
-  startDate: 'startDate',
-  endDate: 'endDate',
-  amount: 'amount',
-  description: 'description',
-  vendorId: 'vendorId'
-};
-
-exports.Prisma.DepartmentsScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.DocumentScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  filePath: 'filePath',
-  version: 'version',
-  permission: 'permission',
-  createdAt: 'createdAt',
-  createdById: 'createdById'
-};
-
-exports.Prisma.Employee_rolesScalarFieldEnum = {
-  employee_id: 'employee_id',
-  role_id: 'role_id'
-};
-
-exports.Prisma.EmployeesScalarFieldEnum = {
-  id: 'id',
-  first_name: 'first_name',
-  last_name: 'last_name',
-  employee_code: 'employee_code',
-  department_id: 'department_id',
-  is_dept_head: 'is_dept_head',
-  is_active: 'is_active'
-};
-
-exports.Prisma.InventoryCategoryScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.InventoryItemScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  description: 'description',
-  barcode: 'barcode',
-  serialNumber: 'serialNumber',
-  categoryId: 'categoryId',
-  supplierId: 'supplierId',
-  stock: 'stock',
-  minStock: 'minStock',
-  unit: 'unit',
-  imagePath: 'imagePath'
-};
-
-exports.Prisma.InventorySupplierScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  contact: 'contact',
-  email: 'email',
-  phone: 'phone'
-};
-
-exports.Prisma.InventoryTransactionScalarFieldEnum = {
-  id: 'id',
-  itemId: 'itemId',
-  type: 'type',
-  qty: 'qty',
-  userId: 'userId',
-  date: 'date',
-  note: 'note',
-  barcode: 'barcode'
-};
-
-exports.Prisma.It_departmentsScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.It_employee_rolesScalarFieldEnum = {
-  employee_id: 'employee_id',
-  role_id: 'role_id'
-};
-
-exports.Prisma.It_employeesScalarFieldEnum = {
-  id: 'id',
-  first_name: 'first_name',
-  last_name: 'last_name',
-  employee_code: 'employee_code',
-  department_id: 'department_id',
-  is_dept_head: 'is_dept_head',
-  is_active: 'is_active'
-};
-
-exports.Prisma.It_rolesScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.KnowledgeBaseScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  content: 'content',
-  category: 'category',
-  tags: 'tags',
-  isPublic: 'isPublic',
-  createdById: 'createdById',
-  linkedTicketId: 'linkedTicketId',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.LicenseScalarFieldEnum = {
-  id: 'id',
-  softwareName: 'softwareName',
-  licenseKey: 'licenseKey',
-  expireDate: 'expireDate',
-  assetId: 'assetId'
-};
-
-exports.Prisma.MonitorScalarFieldEnum = {
-  id: 'id',
-  targetName: 'targetName',
-  ipAddress: 'ipAddress',
-  status: 'status',
-  lastCheck: 'lastCheck',
-  assetId: 'assetId'
-};
-
-exports.Prisma.RolesScalarFieldEnum = {
-  id: 'id',
-  name: 'name'
-};
-
-exports.Prisma.TicketScalarFieldEnum = {
-  id: 'id',
-  title: 'title',
-  description: 'description',
-  resolutionNote: 'resolutionNote',
-  status: 'status',
-  createdAt: 'createdAt',
-  assetId: 'assetId',
-  requestedById: 'requestedById',
-  assignedToId: 'assignedToId'
-};
-
-exports.Prisma.TicketAttachmentScalarFieldEnum = {
-  id: 'id',
-  fileName: 'fileName',
-  filePath: 'filePath',
-  uploadedAt: 'uploadedAt',
-  ticketId: 'ticketId',
-  uploadedById: 'uploadedById'
-};
-
-exports.Prisma.TicketCommentScalarFieldEnum = {
-  id: 'id',
-  content: 'content',
-  createdAt: 'createdAt',
-  ticketId: 'ticketId',
-  createdById: 'createdById'
-};
-
-exports.Prisma.TicketHistoryScalarFieldEnum = {
-  id: 'id',
-  ticketId: 'ticketId',
-  oldStatus: 'oldStatus',
-  newStatus: 'newStatus',
-  changedById: 'changedById',
-  changedAt: 'changedAt',
-  note: 'note'
-};
-
-exports.Prisma.UserScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  empId: 'empId',
-  email: 'email',
-  password: 'password',
-  role: 'role',
-  department: 'department'
-};
-
-exports.Prisma.VendorScalarFieldEnum = {
-  id: 'id',
-  name: 'name',
-  contact: 'contact',
-  email: 'email',
-  phone: 'phone',
-  website: 'website',
-  address: 'address'
-};
-
 exports.Prisma.Webmes_UserScalarFieldEnum = {
   id: 'id',
-  employeeId: 'employeeId',
+  username: 'username',
   fullName: 'fullName',
-  department: 'department',
   email: 'email',
-  password: 'password',
+  department: 'department',
+  plant: 'plant',
+  section: 'section',
+  adDn: 'adDn',
   isActive: 'isActive',
+  password: 'password',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
@@ -379,8 +146,9 @@ exports.Prisma.Webmes_RoleScalarFieldEnum = {
 
 exports.Prisma.Webmes_PermissionScalarFieldEnum = {
   id: 'id',
-  name: 'name',
-  module: 'module'
+  code: 'code',
+  module: 'module',
+  description: 'description'
 };
 
 exports.Prisma.Webmes_UserRoleScalarFieldEnum = {
@@ -407,32 +175,6 @@ exports.Prisma.NullsOrder = {
 
 
 exports.Prisma.ModelName = {
-  Asset: 'Asset',
-  AssetHistory: 'AssetHistory',
-  AuditLog: 'AuditLog',
-  Contract: 'Contract',
-  departments: 'departments',
-  Document: 'Document',
-  employee_roles: 'employee_roles',
-  employees: 'employees',
-  InventoryCategory: 'InventoryCategory',
-  InventoryItem: 'InventoryItem',
-  InventorySupplier: 'InventorySupplier',
-  InventoryTransaction: 'InventoryTransaction',
-  it_departments: 'it_departments',
-  it_employee_roles: 'it_employee_roles',
-  it_employees: 'it_employees',
-  it_roles: 'it_roles',
-  KnowledgeBase: 'KnowledgeBase',
-  License: 'License',
-  Monitor: 'Monitor',
-  roles: 'roles',
-  Ticket: 'Ticket',
-  TicketAttachment: 'TicketAttachment',
-  TicketComment: 'TicketComment',
-  TicketHistory: 'TicketHistory',
-  User: 'User',
-  Vendor: 'Vendor',
   webmes_User: 'webmes_User',
   webmes_Role: 'webmes_Role',
   webmes_Permission: 'webmes_Permission',

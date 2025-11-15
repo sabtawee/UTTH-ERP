@@ -1,5 +1,6 @@
 const authService = require('./auth.service');
 
+
 exports.login = async (req, res) => {
   try {
     console.log('Login request body:', req.body);
@@ -21,5 +22,23 @@ exports.me = async (req, res) => {
   } catch (err) {
     console.error('Error fetching user profile:', err);
     res.status(500).json({ message: 'Internal Server Error' });
+  }
+};
+
+exports.loginAD = async (req, res) => {
+  const { username, password } = req.body;
+
+  try {
+    const user = await authService.loginAD(username, password);
+
+    if (!user) {
+      return res.status(401).json({ message: "Invalid username or password (AD)" });
+    }
+
+    res.json(user);
+
+  } catch (err) {
+    console.error("Login Error:", err);
+    res.status(500).json({ error: err.message });
   }
 };

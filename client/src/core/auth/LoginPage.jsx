@@ -110,7 +110,6 @@ export default function LoginPage() {
     try {
       await login(email, password);
       
-
       // Add slight delay before going to main page
       setTimeout(() => {
         navigate("/");

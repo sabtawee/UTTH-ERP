@@ -133,7 +133,7 @@ export default function NavbarComponent({ collapsed, onCollapse, isMobile }) {
           {!isMobile && (
             <div className="text-right hidden sm:block">
               <Text strong className="text-sm text-gray-800 block truncate">
-                {user?.fullName || user?.fullName || "User"}
+                {user?.fullName || user?.user?.fullName || "User"}
               </Text>
             </div>
           )}

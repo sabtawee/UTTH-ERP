@@ -22,8 +22,8 @@ exports.listUsers = () => {
 };
 
 exports.assignRole = async (userId, roleIds) => {
-  await prisma.userRole.deleteMany({ where: { userId } });
-  await prisma.userRole.createMany({
+  await prisma.webmes_UserRole.deleteMany({ where: { userId } });
+  await prisma.webmes_UserRole.createMany({
     data: roleIds.map((roleId) => ({ userId, roleId })),
   });
 };

@@ -20,7 +20,7 @@
 
   "dashboard_page": {
     "welcome_message": "Welcome to the Enterprise Resource Planning System",
-    "title": "UTTH ERP Dashboard",
+    "title": "UTTH ERP",
     "system_status": "System Status",
     "active_users": "Active Users",
     "total_roles": "Total Roles",
@@ -37,7 +37,36 @@
     "environment": "Environment",
     "last_updated": "Last Updated",
     "online": "Online",
-    "production": "Production"
+    "production": "Production",
+    "available_systems": "Available Systems in ERP",
+    "modules": {
+      "analysis": "Analysis",
+      "analysis_desc": "Data analysis and reporting tools",
+      "budget": "Budget",
+      "budget_desc": "Budget planning and financial management",
+      "drilling_yellow_sheet": "Drilling Yellow Sheet System",
+      "drilling_yellow_sheet_desc": "PCB drilling data management and yellow sheet system",
+      "engineer_management": "Engineer Management System",
+      "engineer_management_desc": "Engineering team and project management",
+      "engineer_report_management": "Engineer Report Management System",
+      "engineer_report_management_desc": "Engineering reports and documentation system",
+      "expense_reimbursement": "Expense Reimbursement System",
+      "expense_reimbursement_desc": "Employee expense claims and reimbursement processing",
+      "general_affairs_management": "General Affairs Management System",
+      "general_affairs_management_desc": "Administrative and general business operations",
+      "instrument_calibration_management": "Instrument Calibration Management System",
+      "instrument_calibration_management_desc": "Calibration tracking and instrument maintenance",
+      "machine_equipment_management": "Machine and Equipment Management System",
+      "machine_equipment_management_desc": "Manufacturing equipment and machinery management",
+      "material_management": "Material Management System",
+      "material_management_desc": "Inventory and material resource planning",
+      "quality_control": "Quality Control",
+      "quality_control_desc": "Quality assurance and control processes",
+      "quality_inspection": "Quality Inspection System",
+      "quality_inspection_desc": "Product quality inspection and testing",
+      "saling": "Sales",
+      "saling_desc": "Sales management and customer relations"
+    }
   },
 
   "usermanagement": {
