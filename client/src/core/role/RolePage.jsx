@@ -22,6 +22,8 @@ import RolePermissionModal from './components/RolePermissionModal';
 import RoleCreateModal from './components/RoleCreateModal';
 import RoleEditModal from './components/RoleEditModal';
 import RoleDetailDrawer from './components/RoleDetailDrawer';
+import { useTranslation } from 'react-i18next';
+
 
 export default function RolePage() {
   const [roles, setRoles] = useState([]);
@@ -42,6 +44,8 @@ export default function RolePage() {
     withoutPermissions: 0,
     totalPermissions: 0
   });
+
+  const { t } = useTranslation();
   
   const [form] = Form.useForm();
   const [editForm] = Form.useForm();
@@ -64,7 +68,7 @@ export default function RolePage() {
         totalPermissions: permsRes.length
       });
     } catch {
-      message.error('Failed to load roles and permissions');
+      message.error(t('rolemanagement.failed_load_roles'));
     }
     setTableLoading(false);
   };
@@ -98,11 +102,11 @@ export default function RolePage() {
     setLoading(true);
     try {
       await assignPermissionsToRole(selectedRoleId, selectedPermIds);
-      message.success('Permissions assigned successfully');
+      message.success(t('rolemanagement.permissions_assigned_success'));
       setModalOpen(false);
       fetchAll();
     } catch {
-      message.error('Failed to assign permissions');
+      message.error(t('rolemanagement.failed_assign_permissions'));
     }
     setLoading(false);
   };
@@ -112,12 +116,12 @@ export default function RolePage() {
     try {
       const values = await form.validateFields();
       await createRole(values.name, values.description);
-      message.success('Role created successfully');
+      message.success(t('rolemanagement.role_created_success'));
       setCreateModalOpen(false);
       form.resetFields();
       fetchAll();
     } catch {
-      message.error('Failed to create role');
+      message.error(t('rolemanagement.failed_create_role'));
     }
     setLoading(false);
   };
@@ -127,12 +131,12 @@ export default function RolePage() {
     try {
       const values = await editForm.validateFields();
       // await updateRole(selectedRole.id, values); // Implement this API
-      message.success('Role updated successfully');
+      message.success(t('rolemanagement.role_updated_success'));
       setEditModalOpen(false);
       editForm.resetFields();
       fetchAll();
     } catch {
-      message.error('Failed to update role');
+      message.error(t('rolemanagement.failed_update_role'));
     }
     setLoading(false);
   };
@@ -141,10 +145,10 @@ export default function RolePage() {
     setLoading(true);
     try {
       // await deleteRole(roleId); // Implement this API
-      message.success('Role deleted successfully');
+      message.success(t('rolemanagement.role_deleted_success'));
       fetchAll();
     } catch {
-      message.error('Failed to delete role');
+      message.error(t('rolemanagement.failed_delete_role'));
     }
     setLoading(false);
   };
@@ -178,8 +182,8 @@ export default function RolePage() {
 
         {/* Alert Section */}
         <Alert
-          message="Important Information"
-          description="Changes to permissions will immediately affect users with this role. Please verify carefully before saving"
+          message={t('rolemanagement.important_information')}
+          description={t('rolemanagement.important_description')}
           type="info"
           showIcon
           icon={<InfoCircleOutlined />}

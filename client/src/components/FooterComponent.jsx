@@ -27,7 +27,7 @@ export default function FooterComponent() {
           <div className="flex items-center space-x-1 text-sm text-gray-600">
             <CopyrightOutlined />
             <Text type="secondary">
-              2025 UTTH-MES. All rights reserved.
+              2025 UTTH-ERP. All rights reserved.
             </Text>
           </div>
           

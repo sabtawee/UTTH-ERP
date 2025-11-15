@@ -4,6 +4,7 @@ import {
   FilterOutlined,
   SafetyCertificateOutlined,
 } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Text } = Typography;
 const { Option } = Select;
@@ -21,6 +22,7 @@ export default function UserSearchFilter({
   totalUsers,
   onClearFilters
 }) {
+  const { t } = useTranslation();
   return (
     <Card
       size="small"
@@ -34,7 +36,7 @@ export default function UserSearchFilter({
       <Row gutter={[16, 16]} align="middle">
         <Col xs={24} sm={12} md={8}>
           <Input
-            placeholder="Search by name, email, or employee ID..."
+            placeholder={t('usermanagement.search_placeholder')}
             prefix={<SearchOutlined style={{ color: "#1890ff" }} />}
             value={searchText}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -45,7 +47,7 @@ export default function UserSearchFilter({
         </Col>
         <Col xs={24} sm={12} md={5}>
           <Select
-            placeholder="Select Department"
+            placeholder={t('usermanagement.select_department')}
             value={filterDepartment}
             onChange={onFilterDepartmentChange}
             allowClear
@@ -62,7 +64,7 @@ export default function UserSearchFilter({
         </Col>
         <Col xs={24} sm={12} md={5}>
           <Select
-            placeholder="Select Role"
+            placeholder={t('usermanagement.select_role')}
             value={filterRole}
             onChange={onFilterRoleChange}
             allowClear
@@ -80,7 +82,7 @@ export default function UserSearchFilter({
         <Col xs={24} sm={12} md={6}>
           <Space>
             <Text type="secondary" style={{ fontSize: "14px" }}>
-              Showing {filteredUsers.length} of {totalUsers} users
+              {t('usermanagement.showing_users')} {filteredUsers.length} {t('usermanagement.of_users')} {totalUsers} {t('usermanagement.users')}
             </Text>
             <Divider type="vertical" />
             <Button
@@ -88,7 +90,7 @@ export default function UserSearchFilter({
               onClick={onClearFilters}
               style={{ borderRadius: "4px" }}
             >
-              Clear Filters
+              {t('usermanagement.clear_filters')}
             </Button>
           </Space>
         </Col>

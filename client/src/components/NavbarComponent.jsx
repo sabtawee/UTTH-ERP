@@ -99,16 +99,13 @@ export default function NavbarComponent({ collapsed, onCollapse, isMobile }) {
         )}
 
         <div className="flex items-center space-x-2 md:space-x-3">
-          <div className="w-6 h-6 md:w-8 md:h-8 bg-gradient-to-br from-blue-500 to-purple-600 rounded-lg flex items-center justify-center">
-            <GlobalOutlined className="text-white text-xs md:text-sm" />
-          </div>
           {!isMobile && (
             <div>
               <Text strong className="text-sm md:text-lg text-gray-800">
-                UTTH-MES
+                UTTH-ERP
               </Text>
               <Tag color="blue" className="ml-2 text-xs hidden md:inline">
-                Manufacturing System
+                Enterprise Resource Planning
               </Tag>
             </div>
           )}

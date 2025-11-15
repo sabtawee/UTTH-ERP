@@ -31,10 +31,10 @@ const LoginLoading = () => {
         <div className="mb-8">
 
           <h1 className="text-4xl font-bold text-gray-800 mb-3 animate-pulse">
-            UTTH MES
+            UTTH ERP
           </h1>
           <p className="text-lg text-gray-600 mb-2">
-            Manufacturing Execution System
+            Enterprise Resource Planning System
           </p>
           <p className="text-sm text-gray-500 h-6">{loadingText}</p>
         </div>
@@ -136,12 +136,12 @@ export default function LoginPage() {
           <div className="w-20 h-20 mx-auto mb-4 relative">
             <img
               src="/logo.gif"
-              alt="UTTH MES"
+              alt="UTTH Logo"
               className="w-full h-full object-contain"
             />
           </div>
-          <h1 className="text-3xl font-bold text-gray-800 mb-2">UTTH MES</h1>
-          <p className="text-gray-600">Manufacturing Execution System</p>
+          <h1 className="text-3xl font-bold text-gray-800 mb-2">UTTH ERP</h1>
+          <p className="text-gray-600">Enterprise Resource Planning System</p>
         </div>
 
         <Card

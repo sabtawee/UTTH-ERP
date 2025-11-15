@@ -18,7 +18,7 @@ const permissionRoutes = require("./src/core/permission/permission.routes");
 const userRoutes = require("./src/core/user/user.routes");
 
 //modules
-const usergroupRouter = require('./src/modules/usergroups/usergroup.route');
+const yellowsheetRoutes = require("./src/modules/yellowsheets/yellowsheet.route");
 
 dotenv.config();
 const server = http.createServer(app);
@@ -89,8 +89,10 @@ app.use("/api/role", roleRoutes);
 app.use("/api/permission", permissionRoutes);
 app.use("/api/user", userRoutes);
 
-// modules
-app.use('/api/usergroups', usergroupRouter);
+
+//modules
+app.use("/api/yellowsheets", yellowsheetRoutes);
+
 
 
 let onlineUsers = 0;

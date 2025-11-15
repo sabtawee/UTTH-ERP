@@ -1,5 +1,6 @@
 import { Card, Row, Col, Input, Space, Divider, Button, Typography } from 'antd';
 import { SearchOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Text } = Typography;
 
@@ -9,6 +10,7 @@ export default function RoleSearchFilter({
   filteredRoles, 
   totalRoles 
 }) {
+  const { t } = useTranslation();
   return (
     <Card
       size="small"
@@ -22,7 +24,7 @@ export default function RoleSearchFilter({
       <Row gutter={[16, 16]} align="middle">
         <Col xs={24} sm={12} md={10}>
           <Input
-            placeholder="Search role name or description..."
+            placeholder={t('rolemanagement.search_placeholder')}
             prefix={<SearchOutlined style={{ color: '#1890ff' }} />}
             value={searchText}
             onChange={(e) => onSearchChange(e.target.value)}
@@ -34,7 +36,7 @@ export default function RoleSearchFilter({
         <Col xs={24} sm={12} md={14}>
           <Space>
             <Text type="secondary" style={{ fontSize: '14px' }}>
-              Showing {filteredRoles.length} of {totalRoles} roles
+              {t('rolemanagement.showing_roles')} {filteredRoles.length} {t('rolemanagement.of_roles')} {totalRoles} {t('rolemanagement.roles')}
             </Text>
             <Divider type="vertical" />
             <Button
@@ -42,7 +44,7 @@ export default function RoleSearchFilter({
               onClick={() => onSearchChange("")}
               style={{ borderRadius: '4px' }}
             >
-              Clear Search
+              {t('rolemanagement.clear_filters')}
             </Button>
           </Space>
         </Col>

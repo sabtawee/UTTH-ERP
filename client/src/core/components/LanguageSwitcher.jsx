@@ -42,9 +42,9 @@ export default function LanguageSwitcher() {
     },
     {
       key: "zh",
-      label: "Taiwanese",
+      label: "Taiwanese (Traditional)",
       flag: "https://flagcdn.com/w40/tw.png",
-      nativeName: "中文",
+      nativeName: "繁體中文",
       flagAlt: "Taiwan"
     }
   ];

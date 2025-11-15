@@ -13,6 +13,7 @@ import {
   SettingOutlined,
   UnlockOutlined,
 } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Text } = Typography;
 
@@ -25,6 +26,7 @@ export default function UserTable({
   onDeleteUser,
   onCreateUser
 }) {
+  const { t } = useTranslation();
   // Utility functions
   const getRoleColor = (roleName) => {
     const colors = {
@@ -55,7 +57,7 @@ export default function UserTable({
 
   const columns = [
     {
-      title: "User",
+      title: t('usermanagement.table_user'),
       dataIndex: "fullName",
       key: "fullName",
       render: (text, record) => (
@@ -89,7 +91,7 @@ export default function UserTable({
       fixed: "left",
     },
     {
-      title: "Department / Position",
+      title: t('usermanagement.table_department_position'),
       key: "department",
       render: (_, record) => (
         <div>
@@ -104,7 +106,7 @@ export default function UserTable({
       width: 160,
     },
     {
-      title: "Roles",
+      title: t('usermanagement.table_roles'),
       dataIndex: "roles",
       key: "roles",
       render: (roles) => (
@@ -121,7 +123,7 @@ export default function UserTable({
           ))}
           {(!roles || roles.length === 0) && (
             <Tag color="default" icon={<LockOutlined />}>
-              No Roles
+              {t('usermanagement.no_roles')}
             </Tag>
           )}
         </Space>
@@ -129,7 +131,7 @@ export default function UserTable({
       width: 150,
     },
     {
-      title: "Status",
+      title: t('usermanagement.table_status'),
       key: "status",
       render: (_, record) => {
         const status = getUserStatus(record);
@@ -137,10 +139,10 @@ export default function UserTable({
           <Space direction="vertical" size="small">
             <Badge
               status={status === "active" ? "success" : "error"}
-              text={status === "active" ? "Active" : "Inactive"}
+              text={status === "active" ? t('usermanagement.active') : t('usermanagement.inactive')}
             />
             <Text type="secondary" style={{ fontSize: "11px" }}>
-              Created on:{" "}
+              {t('usermanagement.created_on')}{" "}
               {new Date(record.createdAt || Date.now()).toLocaleDateString(
                 "th-TH"
               )}
@@ -151,25 +153,25 @@ export default function UserTable({
       width: 120,
     },
     {
-      title: "Actions",
+      title: t('usermanagement.table_actions'),
       key: "actions",
       render: (_, record) => {
         const actionItems = [
           {
             key: "view",
-            label: "View Details",
+            label: t('usermanagement.view_details'),
             icon: <EyeOutlined />,
             onClick: () => onViewUser(record),
           },
           {
             key: "edit",
-            label: "Edit User",
+            label: t('usermanagement.edit_user'),
             icon: <EditOutlined />,
             onClick: () => onEditUser(record),
           },
           {
             key: "assign",
-            label: "Assign Roles",
+            label: t('usermanagement.assign_roles'),
             icon: <SafetyCertificateOutlined />,
             onClick: () => onAssignRoles(record),
           },
@@ -180,19 +182,19 @@ export default function UserTable({
             key: "toggle",
             label:
               getUserStatus(record) === "active"
-                ? "Deactivate"
-                : "Activate",
+                ? t('usermanagement.deactivate')
+                : t('usermanagement.activate'),
             icon:
               getUserStatus(record) === "active" ? (
                 <LockOutlined />
               ) : (
                 <UnlockOutlined />
               ),
-            onClick: () => message.info("This feature will be developed in the future"),
+            onClick: () => message.info(t('usermanagement.export_feature_message')),
           },
           {
             key: "delete",
-            label: "Delete User",
+            label: t('usermanagement.delete_user'),
             icon: <DeleteOutlined />,
             danger: true,
           },
@@ -200,7 +202,7 @@ export default function UserTable({
 
         return (
           <Space size="small">
-            <Tooltip title="View Details">
+            <Tooltip title={t('usermanagement.view_details')}>
               <Button
                 type="text"
                 size="small"
@@ -208,7 +210,7 @@ export default function UserTable({
                 onClick={() => onViewUser(record)}
               />
             </Tooltip>
-            <Tooltip title="Edit User">
+            <Tooltip title={t('usermanagement.edit_user')}>
               <Button
                 type="text"
                 size="small"
@@ -216,7 +218,7 @@ export default function UserTable({
                 onClick={() => onEditUser(record)}
               />
             </Tooltip>
-            <Tooltip title="Assign Roles">
+            <Tooltip title={t('usermanagement.assign_roles')}>
               <Button
                 type="primary"
                 size="small"
@@ -230,10 +232,10 @@ export default function UserTable({
                 onClick: ({ key }) => {
                   if (key === "delete") {
                     Modal.confirm({
-                      title: "Confirm Delete",
-                      content: `Are you sure you want to delete user "${record.fullName}"?`,
-                      okText: "Delete",
-                      cancelText: "Cancel",
+                      title: t('usermanagement.confirm_delete'),
+                      content: `${t('usermanagement.confirm_delete_message')} "${record.fullName}"?`,
+                      okText: t('usermanagement.delete'),
+                      cancelText: t('usermanagement.cancel'),
                       okType: "danger",
                       onOk: () => onDeleteUser(record.id),
                     });
@@ -266,7 +268,7 @@ export default function UserTable({
         showSizeChanger: true,
         showQuickJumper: true,
         showTotal: (total, range) =>
-          `${range[0]}-${range[1]} of ${total} items`,
+          `${range[0]}-${range[1]} ${t('usermanagement.pagination_total')} ${total} ${t('usermanagement.items')}`,
         pageSizeOptions: ["10", "15", "25", "50"],
       }}
       locale={{
@@ -275,7 +277,7 @@ export default function UserTable({
             image={Empty.PRESENTED_IMAGE_SIMPLE}
             description={
               <span>
-                No users found
+                {t('usermanagement.no_users_found')}
                 <br />
                 <Button
                   type="primary"
@@ -283,7 +285,7 @@ export default function UserTable({
                   onClick={onCreateUser}
                   style={{ marginTop: "8px" }}
                 >
-                  Add First User
+                  {t('usermanagement.add_first_user')}
                 </Button>
               </span>
             }

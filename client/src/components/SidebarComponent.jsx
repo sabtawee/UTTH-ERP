@@ -31,6 +31,7 @@ import {
 import { useNavigate, useLocation } from "react-router-dom";
 import { mt_processNav } from "../modules/mastersdata/process/process.routes";
 import { mt_productNav } from "../modules/mastersdata/products/product.route";
+import { yellowsheetNav } from "../modules/yellowsheets/yellowsheet.routes";
 
 const { Sider } = Layout;
 const { Text } = Typography;
@@ -76,6 +77,12 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
     } else if (path === "/basic/account") {
       setSelectedKeys(["account"]);
       setOpenKeys(["basic-information"]);
+    } else if (path.startsWith("/yellowsheets")) {
+      setSelectedKeys(["yellowsheet"]);
+      setOpenKeys(["yellowsheet"]);
+    } else {
+      setSelectedKeys([]);
+      setOpenKeys([]);
     }
   }, [location.pathname]);
 
@@ -112,29 +119,16 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
       ].filter(Boolean),
     },
     hasPermission("User.view") && {
-      key: "master-information",
-      icon: <GlobalOutlined />,
-      label: t("menu.master"),
+      key: "yellowsheet",
+      icon: <FileTextOutlined />,
+      label: t("menu.yellowsheet"),
       children: [
-        ...mt_processNav
+        ...yellowsheetNav
           .map(
             (navItem) =>
               hasPermission(navItem.permission) && {
                 ...navItem,
-                label: t(`master_menu.${navItem.label}`),
-                onClick: () => {
-                  console.log(`Navigating to ${navItem.path}`);
-                  navigate(navItem.path);
-                },
-              }
-          )
-          .filter(Boolean),
-        ...mt_productNav
-          .map(
-            (navItem) =>
-              hasPermission(navItem.permission) && {
-                ...navItem,
-                label: t(`master_menu.${navItem.label}`),
+                label: t(`yellowsheet.${navItem.label}`),
                 onClick: () => {
                   console.log(`Navigating to ${navItem.path}`);
                   navigate(navItem.path);
@@ -174,7 +168,7 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
               ) : (
                 <>
                   <img
-                    src="/prototype.ico"
+                    src="/logo.ico"
                     className={`opacity-80 ${
                       collapsed
                         ? "mx-auto text-red-500"
@@ -212,7 +206,7 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
         <div className="flex-shrink-0 p-4">
           <div className="text-center">
             <div className="text-xs text-gray-500 mb-1">
-              UTTH Manufacturing Execution System
+              UTTH Enterprise Resource Planning
             </div>
             <div className="text-xs text-gray-400 mb-2">v0.0.0 • © 2025</div>
 

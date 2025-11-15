@@ -9,6 +9,7 @@ import ProtectedRoute from '../core/components/ProtectedRoute';
 import MainLayout from '../layouts/MainLayout';
 import { mt_processRoutes } from '../modules/mastersdata/process/process.routes';
 import { mt_productRoutes } from '../modules/mastersdata/products/product.route';
+import { yellowsheetRoutes } from '../modules/yellowsheets/yellowsheet.routes';
 
 const AppRouter = createBrowserRouter([
   {
@@ -60,6 +61,22 @@ const AppRouter = createBrowserRouter([
         path: `master/${route.path}`,
         element: route.element,
       })),
+      // Yellowsheet Management routes from external module
+      ...yellowsheetRoutes.map(route => {
+        if (route.children) {
+          // Handle nested routes
+          return {
+            path: `yellowsheets/${route.path}`,
+            element: route.element,
+            children: route.children
+          };
+        }
+        // Handle simple routes
+        return {
+          path: `yellowsheets/${route.path}`,
+          element: route.element,
+        };
+      }),
       {
         path: 'settings',
         element: <SettingsPage />,

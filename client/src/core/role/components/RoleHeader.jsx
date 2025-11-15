@@ -5,40 +5,42 @@ import {
   ReloadOutlined,
   PlusOutlined,
 } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const { Title: AntTitle, Text } = Typography;
 
 export default function RoleHeader({ filteredRoles, onRefresh, onCreateRole }) {
+  const { t } = useTranslation();
   return (
     <div className="mb-6">
       <Row justify="space-between" align="middle">
         <Col>
           <AntTitle level={2} className="mb-2" style={{ color: '#1890ff' }}>
             <SafetyCertificateOutlined className="mr-3" />
-            Role & Permission Management
+            {t('rolemanagement.role_management')}
           </AntTitle>
           <Text type="secondary" style={{ fontSize: '16px' }}>
-            Manage user roles and assign access permissions in the Manufacturing Execution System
+            {t('rolemanagement.role_management_description')}
           </Text>
         </Col>
         <Col>
           <Space size="middle">
-            <Tooltip title="Export Data">
+            <Tooltip title={t('usermanagement.export_data')}>
               <Badge count={filteredRoles.length} showZero>
                 <Button 
                   icon={<ExportOutlined />}
-                  onClick={() => message.info('This feature will be developed in the future')}
+                  onClick={() => message.info(t('usermanagement.export_feature_message'))}
                 >
-                  Export
+                  {t('usermanagement.export')}
                 </Button>
               </Badge>
             </Tooltip>
-            <Tooltip title="Refresh Data">
+            <Tooltip title={t('usermanagement.refresh_data')}>
               <Button 
                 icon={<ReloadOutlined />}
                 onClick={() => {
                   onRefresh();
-                  message.success('Data refreshed');
+                  message.success(t('usermanagement.data_refreshed'));
                 }}
               />
             </Tooltip>
@@ -54,7 +56,7 @@ export default function RoleHeader({ filteredRoles, onRefresh, onCreateRole }) {
                 boxShadow: '0 4px 12px rgba(24, 144, 255, 0.3)'
               }}
             >
-              Create New Role
+              {t('rolemanagement.create_new_role')}
             </Button>
           </Space>
         </Col>
