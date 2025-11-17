@@ -188,6 +188,8 @@
     "check_drillhole_desc": "ตรวจสอบและยืนยันข้อมูลการเจาะ PCB เพื่อความถูกต้องและการผลิตที่เป็นไปตามมาตรฐาน",
     "delete_drillhole": "ลบข้อมูล PCB",
     "delete_drillhole_desc": "ลบบันทึกการเจาะ PCB ที่มีอยู่และข้อมูลการผลิตที่เกี่ยวข้อง",
+    "search_drillhole": "ค้นหาข้อมูล PCB",
+    "search_drillhole_desc": "ค้นหาและเรียกดูบันทึกการเจาะ PCB ที่มีอยู่ด้วยตัวกรองการค้นหาขั้นสูง",
     "get_started": "เริ่มต้นใช้งาน",
     "important_notice": "ประกาศสำคัญ",
     "system_notice_desc": "กรุณาตรวจสอบให้แน่ใจว่าการบันทึกข้อมูลทั้งหมดเป็นไปตามมาตรฐานการผลิต PCB ของบริษัท หากมีคำถามทางเทคนิคกรุณาติดต่อทีมวิศวกรรม",
@@ -251,7 +253,38 @@
       "next": "ถัดไป",
       "save": "บันทึก",
       "search": "ค้นหา",
-      "search_data": "ค้นหาข้อมูล"
+      "search_data": "ค้นหาข้อมูล",
+      "total_holes": "จำนวนหลุมทั้งหมด",
+      "created_date": "วันที่สร้าง",
+      "all_status": "สถานะทั้งหมด",
+      "date_range": "ช่วงวันที่",
+      "holes_range": "ช่วงจำนวนหลุม",
+      "advanced_search": "การค้นหาขั้นสูง",
+      "search_results": "ผลการค้นหา",
+      "found_records": "พบ {{count}} รายการ (เลือก {{selected}} รายการ)",
+      "no_search_results": "ไม่พบผลการค้นหา",
+      "view": "ดู",
+      "edit": "แก้ไข",
+      "delete": "ลบ",
+      "reset": "รีเซ็ต",
+      "actions": "การดำเนินการ",
+      "revision": "หมายเลขรุ่น",
+      "layername": "ชื่อชั้น",
+      "cuttingLength": "ความยาวการตัด",
+      "cuttingWidth": "ความกว้างการตัด",
+      "MH-X1": "MH-X1",
+      "MH-Y1": "MH-Y1",
+      "MH-X2": "MH-X2",
+      "MH-Y2": "MH-Y2",
+      "MH-Y3": "MH-Y3",
+      "MH-X3": "MH-X3",
+      "MH-Y4": "MH-Y4",
+      "MH-X4": "MH-X4",
+      "MH-Y5": "MH-Y5",
+      "MH-X5": "MH-X5",
+      "Zero-Point-X": "จุดศูนย์ X",
+      "Zero-Point-Y": "จุดศูนย์ Y",
+      "Quadrant": "ควอดแรนท์"
     },
     "placeholders": {
       "enter_partnum": "กรอกหมายเลขชิ้นส่วน",
@@ -268,7 +301,13 @@
       "enter_remarks": "กรอกหมายเหตุ",
       "enter_verifier": "กรอกผู้ตรวจสอบ",
       "enter_reviewer": "กรอกผู้ตรวจทาน",
-      "enter_process_notes": "กรอกหมายเหตุกระบวนการ"
+      "enter_process_notes": "กรอกหมายเหตุกระบวนการ",
+      "select_status": "เลือกสถานะ",
+      "enter_creator": "กรอกผู้สร้าง",
+      "start_date": "วันที่เริ่มต้น",
+      "end_date": "วันที่สิ้นสุด",
+      "enter_revision": "กรอกหมายเลขรุ่น",
+      "enter_layer": "กรอกชั้น"
     },
     "validation": {
       "partnum_required": "ต้องระบุหมายเลขชิ้นส่วน",
@@ -277,12 +316,18 @@
     "status": {
       "in_progress": "กำลังดำเนินการ",
       "completed": "เสร็จสิ้น",
-      "on_hold": "พักไว้ก่อน"
+      "on_hold": "พักไว้ก่อน",
+      "undefined": "ไม่ได้กำหนด"
     },
     "messages": {
       "saved_successfully": "บันทึกข้อมูลการเจาะ PCB เรียบร้อยแล้ว",
       "save_failed": "ไม่สามารถบันทึกข้อมูลการเจาะ PCB ได้",
-      "load_failed": "ไม่สามารถโหลดข้อมูลการเจาะ PCB ได้"
+      "load_failed": "ไม่สามารถโหลดข้อมูลการเจาะ PCB ได้",
+      "search_completed": "ค้นหาเสร็จสิ้นแล้ว",
+      "search_failed": "ค้นหาไม่สำเร็จ",
+      "select_records_to_export": "กรุณาเลือกรายการที่ต้องการส่งออก",
+      "export_started": "เริ่มการส่งออกแล้ว",
+      "deleted_successfully": "ลบรายการเรียบร้อยแล้ว"
     },
     "tabs": {
       "detailed_info": "ข้อมูลพื้นฐาน",
@@ -304,6 +349,21 @@
       "export": "ส่งออก",
       "of": "จาก",
       "items": "รายการ"
+    },
+    "search": {
+      "advanced_search": "การค้นหาขั้นสูง",
+      "search_results": "ผลการค้นหา",
+      "found_records": "พบ {{count}} รายการ (เลือก {{selected}} รายการ)",
+      "no_search_results": "ไม่พบผลการค้นหา",
+      "all_status": "สถานะทั้งหมด",
+      "date_range": "ช่วงวันที่",
+      "holes_range": "ช่วงจำนวนหลุม",
+      "total_holes": "จำนวนหลุมทั้งหมด",
+      "created_date": "วันที่สร้าง",
+      "view": "ดู",
+      "edit": "แก้ไข",
+      "delete": "ลบ",
+      "reset": "รีเซ็ต"
     }
   }
 }

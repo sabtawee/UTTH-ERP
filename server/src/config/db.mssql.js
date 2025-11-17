@@ -31,7 +31,56 @@ const localConfig = {
 };
 
 // ==========================
-// 💾 Lazy Connection Functions
+// 💾 Connection Functions (Open/Close Pattern)
+// ==========================
+
+// MES Database Functions
+async function createMesConnection() {
+  const pool = new sql.ConnectionPool(mesConfig);
+  await pool.connect();
+  console.log('✅ Connected to MES SQL Server');
+  return pool;
+}
+
+async function closeMesConnection(pool) {
+  if (pool && pool.connected) {
+    await pool.close();
+    console.log('🔒 Closed MES SQL Server connection');
+  }
+}
+
+// ERP Database Functions (ODBC)
+async function createErpConnection() {
+  console.log('Attempting to connect to ERP (ODBC)...');
+  const conn = await odbc.connect(erpConnectionString);
+  console.log('✅ Connected to ERP SQL Server 2000 (via ODBC)');
+  return conn;
+}
+
+async function closeErpConnection(conn) {
+  if (conn) {
+    await conn.close();
+    console.log('🔒 Closed ERP SQL Server connection');
+  }
+}
+
+// Local Database Functions
+async function createLocalConnection() {
+  const pool = new sql.ConnectionPool(localConfig);
+  await pool.connect();
+  console.log('✅ Connected to Local SQL Server');
+  return pool;
+}
+
+async function closeLocalConnection(pool) {
+  if (pool && pool.connected) {
+    await pool.close();
+    console.log('🔒 Closed Local SQL Server connection');
+  }
+}
+
+// ==========================
+// 🔄 Legacy Functions (for backward compatibility)
 // ==========================
 let mesPool, erpConn, localPool;
 
@@ -39,7 +88,7 @@ async function getMesPool() {
   if (!mesPool) {
     mesPool = new sql.ConnectionPool(mesConfig);
     await mesPool.connect();
-    console.log('✅ Connected to MES SQL Server');
+    console.log('✅ Connected to MES SQL Server (Legacy)');
   }
   return mesPool;
 }
@@ -48,7 +97,7 @@ async function getErpPool() {
   console.log('Attempting to get ERP Pool (ODBC)...');
   if (!erpConn) {
     erpConn = await odbc.connect(erpConnectionString);
-    console.log('✅ Connected to ERP SQL Server 2000 (via ODBC)');
+    console.log('✅ Connected to ERP SQL Server 2000 (via ODBC) (Legacy)');
   }
   return erpConn;
 }
@@ -57,7 +106,7 @@ async function getLocalPool() {
   if (!localPool) {
     localPool = new sql.ConnectionPool(localConfig);
     await localPool.connect();
-    console.log('✅ Connected to Local SQL Server');
+    console.log('✅ Connected to Local SQL Server (Legacy)');
   }
   return localPool;
 }
@@ -67,6 +116,14 @@ async function getLocalPool() {
 // ==========================
 module.exports = {
   sql,
+  // New connection pattern (recommended)
+  createMesConnection,
+  closeMesConnection,
+  createErpConnection,
+  closeErpConnection,
+  createLocalConnection,
+  closeLocalConnection,
+  // Legacy functions (for backward compatibility)
   getMesPool,
   getErpPool,
   getLocalPool,

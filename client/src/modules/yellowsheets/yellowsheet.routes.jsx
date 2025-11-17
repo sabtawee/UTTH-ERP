@@ -5,6 +5,7 @@ import DrillholedataPage from './pages/drillholedata/DrillholedataPage';
 import AdddrillholePage from './pages/drillholedata/AdddrillholePage';
 import EditdrillholePage from './pages/drillholedata/EditdrillholePage';
 import CheckdrillholePage from './pages/drillholedata/CheckdrillholePage';
+import SearchdrillholePage from './pages/drillholedata/SearchdrillholePage';
 
 export const yellowsheetRoutes = [
     {
@@ -42,6 +43,14 @@ export const yellowsheetRoutes = [
                     </ProtectedRoute>
                 ),
             },
+            {
+                path : 'searchdrillhole',
+                element : (
+                    <ProtectedRoute requirePerm="User.view">
+                        <SearchdrillholePage />
+                    </ProtectedRoute>
+                ),
+            }
         ],
     },
     {
