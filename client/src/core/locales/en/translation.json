@@ -192,6 +192,8 @@
     "check_drillhole_desc": "Validate and verify PCB drilling data for accuracy and manufacturing compliance",
     "delete_drillhole": "Delete PCB Data",
     "delete_drillhole_desc": "Remove existing PCB drilling records and associated manufacturing data",
+    "search_drillhole": "Search PCB Data",
+    "search_drillhole_desc": "Find and browse existing PCB drilling records with advanced search filters",
     "get_started": "Get Started",
     "important_notice": "Important Notice",
     "system_notice_desc": "Please ensure all data entry follows the company's PCB manufacturing standards and procedures. Contact the engineering team for any technical questions.",
@@ -255,7 +257,38 @@
       "next": "Next",
       "save": "Save",
       "search": "Search",
-      "search_data": "Search Data"
+      "search_data": "Search Data",
+      "total_holes": "Total Holes",
+      "created_date": "Created Date",
+      "all_status": "All Status",
+      "date_range": "Date Range",
+      "holes_range": "Holes Range",
+      "advanced_search": "Advanced Search",
+      "search_results": "Search Results",
+      "found_records": "Found {{count}} records ({{selected}} selected)",
+      "no_search_results": "No search results found",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "reset": "Reset",
+      "actions": "Actions",
+      "revision": "Revision",
+      "layername": "Layer Name",
+      "cuttingLength": "Cutting Length",
+      "cuttingWidth": "Cutting Width",
+      "MH-X1": "MH-X1",
+      "MH-Y1": "MH-Y1",
+      "MH-X2": "MH-X2",
+      "MH-Y2": "MH-Y2",
+      "MH-Y3": "MH-Y3",
+      "MH-X3": "MH-X3",
+      "MH-Y4": "MH-Y4",
+      "MH-X4": "MH-X4",
+      "MH-Y5": "MH-Y5",
+      "MH-X5": "MH-X5",
+      "Zero-Point-X": "Zero Point X",
+      "Zero-Point-Y": "Zero Point Y",
+      "Quadrant": "Quadrant"
     },
     "placeholders": {
       "enter_partnum": "Enter part number",
@@ -272,7 +305,13 @@
       "enter_remarks": "Enter remarks",
       "enter_verifier": "Enter verifier",
       "enter_reviewer": "Enter reviewer",
-      "enter_process_notes": "Enter process notes"
+      "enter_process_notes": "Enter process notes",
+      "select_status": "Select status",
+      "enter_creator": "Enter creator",
+      "start_date": "Start date",
+      "end_date": "End date",
+      "enter_revision": "Enter revision",
+      "enter_layer": "Enter layer"
     },
     "validation": {
       "partnum_required": "Part number is required",
@@ -286,7 +325,12 @@
     "messages": {
       "saved_successfully": "PCB drilling data saved successfully",
       "save_failed": "Failed to save PCB drilling data",
-      "load_failed": "Failed to load PCB drilling data"
+      "load_failed": "Failed to load PCB drilling data",
+      "search_completed": "Search completed successfully",
+      "search_failed": "Search failed",
+      "select_records_to_export": "Please select records to export",
+      "export_started": "Export started successfully",
+      "deleted_successfully": "Record deleted successfully"
     },
     "tabs": {
       "detailed_info": "Basic Info",
@@ -308,6 +352,21 @@
       "export": "Export",
       "of": "of",
       "items": "items"
+    },
+    "search": {
+      "advanced_search": "Advanced Search",
+      "search_results": "Search Results",
+      "found_records": "Found {{count}} records ({{selected}} selected)",
+      "no_search_results": "No search results found",
+      "all_status": "All Status",
+      "date_range": "Date Range",
+      "holes_range": "Holes Range",
+      "total_holes": "Total Holes",
+      "created_date": "Created Date",
+      "view": "View",
+      "edit": "Edit",
+      "delete": "Delete",
+      "reset": "Reset"
     }
   }
 }

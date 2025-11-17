@@ -181,6 +181,8 @@
     "check_drillhole_desc": "驗證並確認 PCB 鑽孔數據的準確性和製造合規性",
     "delete_drillhole": "刪除 PCB 數據",
     "delete_drillhole_desc": "移除現有的 PCB 鑽孔記錄和相關的製造數據",
+    "search_drillhole": "搜尋 PCB 數據",
+    "search_drillhole_desc": "尋找和瀏覽現有的 PCB 鑽孔記錄，具有進階搜尋篩選功能",
     "get_started": "開始使用",
     "important_notice": "重要通知",
     "system_notice_desc": "請確保所有數據輸入符合公司的 PCB 製造標準和程序。如有技術問題，請聯繫工程團隊",
@@ -244,7 +246,21 @@
       "next": "下一步",
       "save": "儲存",
       "search": "搜尋",
-      "search_data": "搜尋數據"
+      "search_data": "搜尋數據",
+      "total_holes": "總孔數",
+      "created_date": "建立日期",
+      "all_status": "所有狀態",
+      "date_range": "日期範圍",
+      "holes_range": "孔數範圍",
+      "advanced_search": "進階搜尋",
+      "search_results": "搜尋結果",
+      "found_records": "找到 {{count}} 筆記錄 (已選擇 {{selected}} 筆)",
+      "no_search_results": "未找到搜尋結果",
+      "view": "查看",
+      "edit": "編輯",
+      "delete": "刪除",
+      "reset": "重設",
+      "actions": "操作"
     },
     "placeholders": {
       "enter_partnum": "輸入零件編號",
@@ -261,7 +277,11 @@
       "enter_remarks": "輸入備註",
       "enter_verifier": "輸入驗證者",
       "enter_reviewer": "輸入審查者",
-      "enter_process_notes": "輸入製程備註"
+      "enter_process_notes": "輸入製程備註",
+      "select_status": "選擇狀態",
+      "enter_creator": "輸入建立者",
+      "start_date": "開始日期",
+      "end_date": "結束日期"
     },
     "validation": {
       "partnum_required": "零件編號為必填",
@@ -275,7 +295,12 @@
     "messages": {
       "saved_successfully": "PCB 鑽孔數據儲存成功",
       "save_failed": "PCB 鑽孔數據儲存失敗",
-      "load_failed": "PCB 鑽孔數據載入失敗"
+      "load_failed": "PCB 鑽孔數據載入失敗",
+      "search_completed": "搜尋完成",
+      "search_failed": "搜尋失敗",
+      "select_records_to_export": "請選擇要匯出的記錄",
+      "export_started": "已開始匯出",
+      "deleted_successfully": "記錄刪除成功"
     },
     "tabs": {
       "detailed_info": "基本資訊",
@@ -297,6 +322,34 @@
       "export": "匯出",
       "of": "共",
       "items": "項目"
+    },
+    "search": {
+      "advanced_search": "進階搜尋",
+      "search_results": "搜尋結果",
+      "found_records": "找到 {{count}} 筆記錄 (已選擇 {{selected}} 筆)",
+      "no_search_results": "未找到搜尋結果",
+      "all_status": "所有狀態",
+      "date_range": "日期範圍",
+      "holes_range": "孔數範圍",
+      "total_holes": "總孔數",
+      "created_date": "建立日期",
+      "view": "查看",
+      "edit": "編輯",
+      "delete": "刪除",
+      "reset": "重設"
+    },
+    "messages": {
+      "search_completed": "搜尋完成",
+      "search_failed": "搜尋失敗",
+      "select_records_to_export": "請選擇要匯出的記錄",
+      "export_started": "已開始匯出",
+      "deleted_successfully": "記錄刪除成功"
+    },
+    "placeholders": {
+      "select_status": "選擇狀態",
+      "enter_creator": "輸入建立者",
+      "start_date": "開始日期",
+      "end_date": "結束日期"
     }
   }
 }

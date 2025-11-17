@@ -22,7 +22,6 @@ export default function DrillholedataPage() {
       <DrillholeHeader />
       <DrillholeMenuCards />
       <DrillholeNotice />
-      <DrillholeStats statsData={statsData} />
     </div>
   );
 }
