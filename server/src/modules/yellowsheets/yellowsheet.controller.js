@@ -14,12 +14,12 @@ exports.getErp_yspartnum = async (req, res) => {
 }
 
 
-exports.getErp_yspartnum_1 = async (req, res) => {
+exports.getErp_yssearh = async (req, res) => {
     try {
         let partnum = req.params.partnum;
         let revision = req.params.revision;
         let layer = req.params.layer;
-        const result = await service.getErp_yspartnum_1(partnum, revision, layer);
+        const result = await service.getErp_yssearh(partnum, revision, layer);
         res.json(result);
     } catch (error) {
         console.error('Error in controller while fetching ERP yellowsheets:', error);

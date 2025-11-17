@@ -20,15 +20,15 @@ exports.getErp_yspartnum = async (partnum, revision, layer) => {
 };
 
 
-exports.getErp_yspartnum_1 = async (partnum, revision, layer) => {
+exports.getErp_yssearh = async (partnum, revision, layer) => {
     try {
 
         const erpPool = await getErpPool();
-        const result = await erpPool.query(` SELECT t1.PART_NBR, t1.REVISION, t1.LAYER,t1.KIND AS 'Type',t1.VERSION,n.LayerName,
-                   t1.OUT_L, t1.OUT_W, 
-                   t1.MHX1, t1.MHY1, t1.MHX2, t1.MHY2,
-                   t1.MHX3, t1.MHY3, t1.MHX4, t1.MHY4,
-                   t1.MHX5, t1.MHY5,t1.STARTX AS 'Zero Point-X', t1.STARTY AS 'Zero Point-Y',t1.QUADRANT, t1.NOTE
+        const result = await erpPool.query(` SELECT t1.PART_NBR AS 'Partnum', t1.REVISION AS 'Foreword', t1.LAYER AS 'Layer',t1.KIND AS 'Type',t1.VERSION,n.LayerName,
+                   t1.OUT_L AS 'Cutting Length', t1.OUT_W AS 'Cutting Width', 
+                   t1.MHX1 AS 'MH-X1', t1.MHY1 AS 'MH-Y1', t1.MHX2 AS 'MH-X2', t1.MHY2 AS 'MH-Y2',
+                   t1.MHX3 AS 'MH-X3', t1.MHY3 AS 'MH-Y3', t1.MHX4 AS 'MH-X4', t1.MHY4 AS 'MH-Y4',
+                   t1.MHX5 AS 'MH-X5', t1.MHY5 AS 'MH-Y5',t1.STARTX AS 'Zero Point-X', t1.STARTY AS 'Zero Point-Y',t1.QUADRANT, t1.NOTE AS 'Remarks'
             FROM dl_drilmst t1 WITH (NOLOCK)
             LEFT JOIN NumofLayer n WITH (NOLOCK) ON t1.LAYER = n.Layer
           where t1.PART_NBR='${partnum}' and t1.REVISION='${revision}' and t1.LAYER='${layer}' 
