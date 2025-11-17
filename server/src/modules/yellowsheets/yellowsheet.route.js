@@ -7,6 +7,7 @@ const yellowsheetController = require('./yellowsheet.controller');
 // Route to get ERP yellowsheets
 router.get('/:partnum/:revision/:layer', yellowsheetController.getErp_yspartnum);
 
-router.get('/1/:partnum/:revision/:layer', yellowsheetController.getErp_yspartnum_1);
 
+
+router.get('/search/:partnum/:revision/:layer', yellowsheetController.getErp_yssearh);
 module.exports = router;

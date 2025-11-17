@@ -363,7 +363,7 @@
         }
       }
     },
-    "/api/yellowsheets/1/{partnum}/{revision}/{layer}": {
+    "/api/yellowsheets/search/{partnum}/{revision}/{layer}": {
       "get": {
         "description": "",
         "parameters": [
