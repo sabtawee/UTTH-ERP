@@ -260,7 +260,24 @@
       "edit": "編輯",
       "delete": "刪除",
       "reset": "重設",
-      "actions": "操作"
+      "actions": "操作",
+      "revision": "版本號",
+      "layername": "層數",
+      "cuttingLength": "切割長度",
+      "cuttingWidth": "切割寬度",
+      "MH-X1": "MH-X1",
+      "MH-Y1": "MH-Y1",
+      "MH-X2": "MH-X2",
+      "MH-Y2": "MH-Y2",
+      "MH-Y3": "MH-Y3",
+      "MH-X3": "MH-X3",
+      "MH-Y4": "MH-Y4",
+      "MH-X4": "MH-X4",
+      "MH-Y5": "MH-Y5",
+      "MH-X5": "MH-X5",
+      "Zero-Point-X": "零點 X",
+      "Zero-Point-Y": "零點 Y",
+      "Quadrant": "象限"
     },
     "placeholders": {
       "enter_partnum": "輸入零件編號",
@@ -281,7 +298,9 @@
       "select_status": "選擇狀態",
       "enter_creator": "輸入建立者",
       "start_date": "開始日期",
-      "end_date": "結束日期"
+      "end_date": "結束日期",
+      "enter_revision": "輸入版本號",
+      "enter_layer": "輸入層數"
     },
     "validation": {
       "partnum_required": "零件編號為必填",
@@ -290,7 +309,8 @@
     "status": {
       "in_progress": "進行中",
       "completed": "已完成",
-      "on_hold": "暫停"
+      "on_hold": "暫停",
+      "undefined": "未定義"
     },
     "messages": {
       "saved_successfully": "PCB 鑽孔數據儲存成功",
@@ -337,19 +357,6 @@
       "edit": "編輯",
       "delete": "刪除",
       "reset": "重設"
-    },
-    "messages": {
-      "search_completed": "搜尋完成",
-      "search_failed": "搜尋失敗",
-      "select_records_to_export": "請選擇要匯出的記錄",
-      "export_started": "已開始匯出",
-      "deleted_successfully": "記錄刪除成功"
-    },
-    "placeholders": {
-      "select_status": "選擇狀態",
-      "enter_creator": "輸入建立者",
-      "start_date": "開始日期",
-      "end_date": "結束日期"
     }
   }
 }

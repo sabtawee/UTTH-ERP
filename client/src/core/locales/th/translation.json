@@ -267,7 +267,24 @@
       "edit": "แก้ไข",
       "delete": "ลบ",
       "reset": "รีเซ็ต",
-      "actions": "การดำเนินการ"
+      "actions": "การดำเนินการ",
+      "revision": "หมายเลขรุ่น",
+      "layername": "ชื่อชั้น",
+      "cuttingLength": "ความยาวการตัด",
+      "cuttingWidth": "ความกว้างการตัด",
+      "MH-X1": "MH-X1",
+      "MH-Y1": "MH-Y1",
+      "MH-X2": "MH-X2",
+      "MH-Y2": "MH-Y2",
+      "MH-Y3": "MH-Y3",
+      "MH-X3": "MH-X3",
+      "MH-Y4": "MH-Y4",
+      "MH-X4": "MH-X4",
+      "MH-Y5": "MH-Y5",
+      "MH-X5": "MH-X5",
+      "Zero-Point-X": "จุดศูนย์ X",
+      "Zero-Point-Y": "จุดศูนย์ Y",
+      "Quadrant": "ควอดแรนท์"
     },
     "placeholders": {
       "enter_partnum": "กรอกหมายเลขชิ้นส่วน",
@@ -288,7 +305,9 @@
       "select_status": "เลือกสถานะ",
       "enter_creator": "กรอกผู้สร้าง",
       "start_date": "วันที่เริ่มต้น",
-      "end_date": "วันที่สิ้นสุด"
+      "end_date": "วันที่สิ้นสุด",
+      "enter_revision": "กรอกหมายเลขรุ่น",
+      "enter_layer": "กรอกชั้น"
     },
     "validation": {
       "partnum_required": "ต้องระบุหมายเลขชิ้นส่วน",
@@ -297,7 +316,8 @@
     "status": {
       "in_progress": "กำลังดำเนินการ",
       "completed": "เสร็จสิ้น",
-      "on_hold": "พักไว้ก่อน"
+      "on_hold": "พักไว้ก่อน",
+      "undefined": "ไม่ได้กำหนด"
     },
     "messages": {
       "saved_successfully": "บันทึกข้อมูลการเจาะ PCB เรียบร้อยแล้ว",
@@ -344,19 +364,6 @@
       "edit": "แก้ไข",
       "delete": "ลบ",
       "reset": "รีเซ็ต"
-    },
-    "messages": {
-      "search_completed": "ค้นหาเสร็จสิ้นแล้ว",
-      "search_failed": "ค้นหาไม่สำเร็จ",
-      "select_records_to_export": "กรุณาเลือกรายการที่ต้องการส่งออก",
-      "export_started": "เริ่มการส่งออกแล้ว",
-      "deleted_successfully": "ลบรายการเรียบร้อยแล้ว"
-    },
-    "placeholders": {
-      "select_status": "เลือกสถานะ",
-      "enter_creator": "กรอกผู้สร้าง",
-      "start_date": "วันที่เริ่มต้น",
-      "end_date": "วันที่สิ้นสุด"
     }
   }
 }

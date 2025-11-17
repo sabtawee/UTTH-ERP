@@ -320,7 +320,9 @@
     "status": {
       "in_progress": "In Progress",
       "completed": "Completed",
-      "on_hold": "On Hold"
+      "on_hold": "On Hold",
+      "undefined": "Undefined"
+      
     },
     "messages": {
       "saved_successfully": "PCB drilling data saved successfully",
