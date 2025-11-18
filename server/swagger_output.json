@@ -395,6 +395,51 @@
           }
         }
       }
+    },
+    "/api/yellowsheets/search/detail/{partnum}/{revision}/{layer}/{type}/{version}": {
+      "get": {
+        "description": "",
+        "parameters": [
+          {
+            "name": "partnum",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "revision",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "layer",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "type",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "version",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
     }
   }
 }
