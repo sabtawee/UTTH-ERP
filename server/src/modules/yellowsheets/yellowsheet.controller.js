@@ -26,3 +26,18 @@ exports.getErp_yssearh = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
+exports.getErp_yssearh_detail = async (req, res) => {
+    try {
+        let partnum = req.params.partnum;
+        let revision = req.params.revision;
+        let layer = req.params.layer;
+        let type = req.params.type;
+        let version = req.params.version;
+        const result = await service.getErp_yssearh_detail(partnum, revision, layer, type, version);
+        res.json(result);
+    } catch (error) {
+        console.error('Error in controller while fetching ERP yellowsheets:', error);
+        res.status(500).json({ error: 'Internal server error' });
+    }
+};
