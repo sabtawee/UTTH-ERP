@@ -51,15 +51,22 @@ export default function ViewdrillholePage() {
                         record.VERSION
                     );
                     
-                    console.log('Detailed drillhole data:', res);
+                    console.log('Detailed drillhole data:', res.yellowdetaildata);
                     console.log('Work Order Data:', res.workorderdrilldata);
                     console.log('Yellow Drill Data:', res.yellowdrilldata);
                     
                     setDrillholeData(record);
-                    setHoleDetails(res.holeData || []);
-                    setBasicInfo(res.dtldata?.[0] || null);
+                    setHoleDetails(res.yellowdetaildata || []);
+                    //setBasicInfo(res.dtldata?.[0] || null);
+                    setBasicInfo(res.yellowdetail?.[0] || null);
                     setWorkOrderData(res.workorderdrilldata || []);
                     setYellowDrillData(res.yellowdrilldata || []);
+                    console.log("===== FULL API RESPONSE =====");
+                    console.log(JSON.stringify(res, null, 2));
+                    console.log("🔥 res.yellowdetail:", res.yellowdetail);
+console.log("🔥 res.yellowdetail[0]:", res.yellowdetail?.[0]);
+
+
 
                 } catch (error) {
                     console.error('Error fetching drill hole details:', error);
@@ -72,6 +79,7 @@ export default function ViewdrillholePage() {
             }
         };
         
+
         fetchData();
     }, [location.state]);
 

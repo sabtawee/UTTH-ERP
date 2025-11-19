@@ -7,6 +7,7 @@ const { Text } = Typography;
 
 export default function YellowDrillTable({ yellowDrillData }) {
     const { t } = useTranslation();
+    console.log('YellowDrillData:', yellowDrillData);
 
     const columns = [
         {
@@ -14,15 +15,14 @@ export default function YellowDrillTable({ yellowDrillData }) {
             dataIndex: 'Number',
             key: 'Number',
             width: 80,
-            render: (text) => (
-                <Badge count={text} style={{ backgroundColor: '#faad14' }} />
-            )
+            
         },
         {
             title: t('yellowsheet.form.hole_diameter'),
             dataIndex: 'Hole Diameter',
             key: 'Hole Diameter',
             width: 120,
+            render: (value) => value ? Number(value).toFixed(4) : '0.0000'
         },
         {
             title: t('yellowsheet.form.number_holes'),
@@ -31,9 +31,9 @@ export default function YellowDrillTable({ yellowDrillData }) {
             width: 120,
         },
         {
-            title: t('yellowsheet.form.NumberofHoles'),
-            dataIndex: 'Number of Holes',
-            key: 'Number of Holes',
+            title: t('yellowsheet.form.number_drill'),
+            dataIndex: 'Number of Drilling',
+            key: 'Number of Drilling',
             width: 120,
         },
     ];

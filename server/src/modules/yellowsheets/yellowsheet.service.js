@@ -105,7 +105,7 @@ exports.getErp_yssearh_detail = async (partnum, revision, layer, type,version) =
                    t1.MHX1 AS 'MH-X1', t1.MHY1 AS 'MH-Y1', t1.MHX2 AS 'MH-X2', t1.MHY2 AS 'MH-Y2',
                    t1.MHX3 AS 'MH-X3', t1.MHY3 AS 'MH-Y3', t1.MHX4 AS 'MH-X4', t1.MHY4 AS 'MH-Y4',
                    t1.MHX5 AS 'MH-X5', t1.MHY5 AS 'MH-Y5',t1.STARTX AS 'Zero Point-X', t1.STARTY AS 'Zero Point-Y',t1.QUADRANT AS 'AV', t1.NOTE AS 'Remarks',t1.CHUSER1 AS 'Creator',
-                   t1.CHUSER2 AS 'Veriffier',t1.CHUSER3 AS 'Reviewer', t1.IsShift AS 'Less than 1.9 times with hole not off', a.UseG93 AS 'Use G93', b.CustomerPartNum, b.Type AS 'Category',
+                   t1.CHUSER2 AS Verifier,t1.CHUSER3 AS Reviewer, t1.IsShift AS 'Less than 1.9 times with hole not off', a.UseG93 AS 'Use G93', b.CustomerPartNum, b.Type AS 'Category',
 				   t1.ONEPCS AS 'Single Layout',
 				   CASE 
         WHEN t1.MARK = '1' THEN 'Production OK'
@@ -147,7 +147,7 @@ const yfdrilldata = await erpConn.query(`
         `);
 const wodrilldata = await erpConn.query(`
           SELECT a.FW As 'Process',NO AS 'Code', a.Hole AS 'Complete aperture',a.HOleL AS 'HoleDiameter', a.PTH,a.LDHole AS 'Laser drilling',a.TsoDow AS 'Slot Cutter',
-a.LianKong AS 'ConnectHole',a.Slow,a.TsoLength AS 'Slot Length',a.Offset FROM prodhole a WITH (NOLOCK) 
+a.LianKong AS 'ConnectHole',a.Slow,a.TsoLength AS 'Slot Length',a.Offset, a.HoleN AS 'Number of Holes' FROM prodhole a WITH (NOLOCK) 
 RIGHT JOIN  dl_drilmst b WITH (NOLOCK) ON a.PartNum = b.PART_NBR 
 		 and a.Revision = b.REVISION AND a.Layer = b.LAYER   WHERE 
                 b.PART_NBR = '${partnum}' 
@@ -159,8 +159,7 @@ RIGHT JOIN  dl_drilmst b WITH (NOLOCK) ON a.PartNum = b.PART_NBR
             success: true,
             yellowdetail: ysdetail,
             yellowdrilldata: yfdrilldata,
-            workorderdrilldata: wodrilldata,
-            
+            workorderdrilldata: wodrilldata,          
         };
 
     } catch (error) {
