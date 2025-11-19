@@ -27,7 +27,6 @@ export default function SearchdrillholePage() {
     const navigate = useNavigate();
     const { t } = useTranslation();
 
-    // State management
     const [loading, setLoading] = useState(false);
     const [searchResults, setSearchResults] = useState([]);
     const [totalResults, setTotalResults] = useState(0);
@@ -88,7 +87,12 @@ export default function SearchdrillholePage() {
     };
 
     const handleView = (record) => {
-        navigate(`/yellowsheets/yellowsheet/view/${record.key}`);
+        navigate(`/yellowsheets/yellowsheet/view/${record.key}`, {
+            state: { 
+                fullRecord: record
+             }
+        });
+
     };
 
 
@@ -142,10 +146,12 @@ export default function SearchdrillholePage() {
             width: 120,
             render: (status) => {
                 const colors = {
-                    completed: 'green',
-                    in_progress: 'blue',
-                    on_hold: 'orange',
-                    cancelled: 'red'
+                    "In progress": 'blue',
+                    "SR": 'orange',
+                    "On Hold": 'yellow',
+                    "undefined": 'gray',
+                    "OPEN": 'purple',
+                    "CLOSED": 'green'
                 };
                 return (
                     <Tag color={colors[status] || 'default'}>

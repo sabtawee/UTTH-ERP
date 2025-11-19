@@ -8,3 +8,12 @@ export const funcSerachDrillholes = async (partnum, revision, layer) => {
     throw error;
   }
 };
+
+export const funcGetDetailDrillhole = async (partnum, revision, layer, type, version) => {
+  try {
+    const response = await api.get(`/api/yellowsheets/search/detail/${partnum}/${revision}/${layer}/${type}/${version}`);
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

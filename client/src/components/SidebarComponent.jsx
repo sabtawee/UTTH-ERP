@@ -48,43 +48,19 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
   const [openKeys, setOpenKeys] = useState([]);
 
   // Update selected keys based on current path
-  useEffect(() => {
-    const path = location.pathname;
 
-    if (path === "/") {
-      setSelectedKeys(["dashboard"]);
-    } else if (path === "/users") {
-      setSelectedKeys(["users"]);
-      setOpenKeys(["admin-management"]);
-    } else if (path === "/roles") {
-      setSelectedKeys(["roles"]);
-      setOpenKeys(["admin-management"]);
-    } else if (path === "/permissions") {
-      setSelectedKeys(["permissions"]);
-      setOpenKeys(["admin-management"]);
-    } else if (path === "/reports") {
-      setSelectedKeys(["reports"]);
-    } else if (path === "/docs") {
-      setSelectedKeys(["documentation"]);
-    } else if (path === "/settings") {
-      setSelectedKeys(["settings"]);
-    } else if (path === "/master/process") {
-      setSelectedKeys(["process"]);
-      setOpenKeys(["master-information"]);
-    } else if (path === "/master/product") {
-      setSelectedKeys(["product"]);
-      setOpenKeys(["master-information"]);
-    } else if (path === "/basic/account") {
-      setSelectedKeys(["account"]);
-      setOpenKeys(["basic-information"]);
-    } else if (path.startsWith("/yellowsheets")) {
-      setSelectedKeys(["yellowsheet"]);
-      setOpenKeys(["yellowsheet"]);
-    } else {
-      setSelectedKeys([]);
-      setOpenKeys([]);
+  useEffect(() => {
+    const pathSnippets = location.pathname.split("/").filter((i) => i);
+    const keys = [];
+    if (pathSnippets.length > 1) {
+      keys.push(pathSnippets[0]);
+      if (pathSnippets.length > 1) {
+        keys.push(pathSnippets[1]);
+      }
     }
+    setSelectedKeys(keys);
   }, [location.pathname]);
+  
 
   const menuItems = [
     {
