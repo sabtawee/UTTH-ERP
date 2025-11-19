@@ -7,8 +7,13 @@ const { Text } = Typography;
 
 export default function ProductInfoCards({ drillholeData, basicInfo }) {
     const { t } = useTranslation();
+   //const data = basicInfo || drillholeData || {};
+    const drilldetaildata = { ...drillholeData, ...basicInfo };
 
-    console.log('ProductInfoCards basicInfo:', drillholeData);
+
+    console.log('ProductInfoCards DATA:', drilldetaildata);
+  //console.log('ProductInfoCards basicInfo:', drillholeData);
+
 
     return (
         <Row gutter={[24, 24]} className="mt-6">
@@ -27,25 +32,40 @@ export default function ProductInfoCards({ drillholeData, basicInfo }) {
                     
                     <Descriptions column={1} bordered size="small">
                         <Descriptions.Item label={t('yellowsheet.form.partnum')}>
-                            <Text copyable strong>{drillholeData?.Partnum}</Text>
+                            <Text copyable strong>{drilldetaildata.Partnum}</Text>
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.revision')}>
-                            <Tag color="blue">{drillholeData?.Foreword}</Tag>
+                            <Tag color="blue">{drilldetaildata.Foreword}</Tag>
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.layer')}>
-                            <Tag color="green">{drillholeData?.Layer}</Tag>
+                            <Tag color="green">{drilldetaildata.Layer}</Tag>
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.layername')}>
-                            {drillholeData?.layername || 'N/A'}
+                            {drilldetaildata.LayerName || 'N/A'}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.type')}>
-                            {drillholeData?.Type || 'N/A'}
+                            <Tag color="purple">{drilldetaildata.Type || 'N/A'}</Tag>
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.version')}>
-                            {drillholeData?.VERSION || 'N/A'}
+                            <Tag color="red">{drilldetaildata.VERSION || 'N/A'}</Tag>
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.category')}>
+                            {drilldetaildata.Category || 'N/A'}
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.status')}>
-                            {drillholeData?.status || 'N/A'}
+                            {drilldetaildata.status || 'N/A'}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.customer_partnum')}>
+                            {drilldetaildata.CustomerPartNum || 'N/A'}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.creator')}>
+                            {drilldetaildata.Creator || 'N/A'}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.verifier')}>
+                            {drilldetaildata.Verifier || 'N/A'}
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.reviewer')}>
+                            {drilldetaildata.Reviewer || 'N/A'}
                         </Descriptions.Item>
                     </Descriptions>
                 </Card>
@@ -70,6 +90,9 @@ export default function ProductInfoCards({ drillholeData, basicInfo }) {
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.cutting_width')}>
                             <Text>{drillholeData?.['Cutting Width']}</Text>
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.AV')}>
+                            <Text>{drilldetaildata?.['AV']}</Text>
                         </Descriptions.Item>
                     </Descriptions>
                 </Card>
@@ -124,6 +147,12 @@ export default function ProductInfoCards({ drillholeData, basicInfo }) {
                         </Descriptions.Item>
                         <Descriptions.Item label={t('yellowsheet.form.MH-Y5')}>
                             <Text>{drillholeData?.['MH-Y5']}</Text>
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.use_new_g93_prog')}>
+                            <Text>{drillholeData?.['Use G93']}</Text>
+                        </Descriptions.Item>
+                        <Descriptions.Item label={t('yellowsheet.form.remarks')}>
+                            <Text>{drillholeData?.['Remarks']}</Text>
                         </Descriptions.Item>
                     </Descriptions>
                 </Card>

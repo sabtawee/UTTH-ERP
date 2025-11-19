@@ -128,6 +128,13 @@ export default function SearchdrillholePage() {
             sorter: true,
         },
         {
+            title: t('yellowsheet.form.creator'),
+            dataIndex: 'Creator',
+            key: 'Creator',
+            width: 200,
+            sorter: true,
+        },
+        {
             title: t('yellowsheet.form.type'),
             dataIndex: 'Type',
             key: 'Type',

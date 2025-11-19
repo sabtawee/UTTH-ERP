@@ -7,119 +7,124 @@ const { Text } = Typography;
 
 export default function WorkOrderTable({ workOrderData }) {
     const { t } = useTranslation();
+    console.log('WorkOrderData:', workOrderData);
     const columns = [
         {
             title: t('yellowsheet.form.number'),
-            dataIndex: 'Code',
-            key: 'Code',
+            dataIndex: 'Process',
+            key: 'Process',
             width: 80,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
-        },
-        {
-            title: t('yellowsheet.form.hole_diameter'),
-            dataIndex: 'Complete aperture',
-            key: 'Complete aperture',
-            width: 150,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
-        },
-        {
-            title: t('yellowsheet.form.number_holes'),
-            dataIndex: 'ConnectHole',
-            key: 'ConnectHole',
-            width: 120,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+
         },
         {
             title: t('yellowsheet.form.process_code'),
-            dataIndex: 'HoleDiameter',
-            key: 'HoleDiameter',
-            width: 120,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            dataIndex: 'Code',
+            key: 'Code',
+            width: 150,
+
         },
         {
             title: t('yellowsheet.form.complete_aperture'),
-            dataIndex: 'Laser drilling',
-            key: 'Laser drilling',
-            width: 180,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            dataIndex: 'Complete aperture',
+            key: 'Complete aperture',
+            width: 120,
+
         },
+        {
+            title: t('yellowsheet.form.hole_diameter'),
+            dataIndex: 'HoleDiameter',
+            key: 'HoleDiameter',
+            width: 120,
+            render: (value) => value ? Number(value).toFixed(4) : '0.0000'
+        }
+        ,
+        {
+            title: t('yellowsheet.form.number_holes'),
+            dataIndex: 'Number of Holes',
+            key: 'Number of Holes',
+            width: 120,
+
+        },
+
         {
             title: t('yellowsheet.form.pth'),
             dataIndex: 'PTH',
             key: 'PTH',
             width: 80,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            render: (value) =>
+                value === 'Y' ? (
+                    <Tag color="green">{t('Yes')}</Tag>
+                ) : (
+                    <Tag color="red">{t('No')}</Tag>
+                )
         },
         {
             title: t('yellowsheet.form.laser_drilling'),
-            dataIndex: 'Offset',
-            key: 'Offset',
+            dataIndex: 'Laser drilling',
+            key: 'Laser drilling',
             width: 120,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            render: (value) =>
+                value === 'Y' ? (
+                    <Tag color="green">{t('Yes')}</Tag>
+                ) : (
+                    <Tag color="red">{t('No')}</Tag>
+                )
+
         },
         {
             title: t('yellowsheet.form.slot_cutter'),
-            dataIndex: 'Process',
-            key: 'Process',
+            dataIndex: 'Slot Cutter',
+            key: 'Slot Cutter',
             width: 100,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            render: (value) =>
+                value === 'Y' ? (
+                    <Tag color="green">{t('Yes')}</Tag>
+                ) : (
+                    <Tag color="red">{t('No')}</Tag>
+                )
         },
         {
             title: t('yellowsheet.form.connect_hole'),
             dataIndex: 'Slot Cutter',
             key: 'Slot Cutter',
             width: 100,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            render: (value) =>
+                value === 'Y' ? (
+                    <Tag color="green">{t('Yes')}</Tag>
+                ) : (
+                    <Tag color="red">{t('No')}</Tag>
+                )
         },
         {
             title: t('yellowsheet.form.slow'),
-            dataIndex: 'Slot Length',
-            key: 'Slot Length',
+            dataIndex: 'Slow',
+            key: 'Slow',
             width: 80,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+            render: (value) =>
+                value === 'Y' ? (
+                    <Tag color="green">{t('Yes')}</Tag>
+                ) : (
+                    <Tag color="red">{t('No')}</Tag>
+                )
         },
         {
             title: t('yellowsheet.form.slot_length'),
-            dataIndex: 'Slow',
-            key: 'Slow',
+            dataIndex: 'Slot Length',
+            key: 'Slot Length',
             width: 120,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+
         },
         {
             title: t('yellowsheet.form.offset'),
-            dataIndex: 'offset',
-            key: 'offset',
+            dataIndex: 'Offset',
+            key: 'Offset',
             width: 100,
-            render: (text) => (
-                text ? <Badge count={text} style={{ backgroundColor: '#52c41a' }} /> : <Text>N/A</Text>
-            )
+
         },
     ];
 
     return (
-        <Card 
+        <Card
             title={
                 <span>
                     <DatabaseOutlined className="mr-2" style={{ color: '#52c41a' }} />
