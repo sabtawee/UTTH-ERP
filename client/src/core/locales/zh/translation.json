@@ -212,6 +212,11 @@
     "search_placeholder": "按零件編號、客戶或類型搜索...",
     "cutting": "切割尺寸",
     "program_zero_mh": "程式零點與安裝孔",
+    "generating_report": "正在生成報告...",
+    "report_generated_success": "報告生成成功！正在打開預覽...",
+    "download_pdf": "下載 PDF",
+    "popup_blocked": "彈窗被阻擋！直接下載中...",
+    "report_generation_failed": "報告生成失敗",
     "steps": {
       "basic_info": "基本資訊",
       "drilling_data": "鑽孔數據",
@@ -219,6 +224,7 @@
     },
     "form": {
       "general_info": "一般資訊",
+      "close": "關閉",
       "technical_info": "技術資訊",
       "program_info": "程式資訊",
       "remarks_status": "備註與狀態",

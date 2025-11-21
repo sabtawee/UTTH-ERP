@@ -223,6 +223,11 @@
     "search_placeholder": "Search by part number, customer, or type...",
     "cutting": "Cutting Size",
     "program_zero_mh": "Program Zero & Mounting Holes",
+    "generating_report": "Generating report...",
+    "report_generated_success": "Report generated successfully! Opening preview...",
+    "download_pdf": "Download PDF",
+    "popup_blocked": "Popup blocked! Downloading directly...",
+    "report_generation_failed": "Failed to generate report",
     "steps": {
       "basic_info": "Basic Information",
       "drilling_data": "Drilling Data",
@@ -230,6 +235,7 @@
     },
     "form": {
       "general_info": "General Information",
+      "close": "Close",
       "technical_info": "Technical Information",
       "program_info": "Program Information",
       "remarks_status": "Remarks & Status",

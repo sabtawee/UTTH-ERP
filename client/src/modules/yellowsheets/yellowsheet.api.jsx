@@ -17,3 +17,14 @@ export const funcGetDetailDrillhole = async (partnum, revision, layer, type, ver
     throw error;
   }
 };
+
+export const funcGenerateYellowsheetReport = async () => {
+  try {
+    const response = await api.get('/api/yellowsheets/report/generate', {
+      responseType: 'blob', // Important for binary data
+    });
+    return response.data;
+  } catch (error) {
+    throw error;
+  }
+};

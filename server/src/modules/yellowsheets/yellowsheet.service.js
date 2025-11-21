@@ -1,16 +1,16 @@
-const { 
-  createErpConnection, 
-  closeErpConnection,
-  // Legacy fallback
-  getErpPool 
+const {
+    createErpConnection,
+    closeErpConnection,
 } = require('../../config/db.mssql');
+
+const {generateDemoReport} = require('../../core/reports/report.service');
 
 exports.getErp_yspartnum = async (partnum, revision, layer) => {
     let erpConn = null;
     try {
         // 🔌 เปิดการเชื่อมต่อใหม่
         erpConn = await createErpConnection();
-        
+
         // 📊 Query 1: ดึงข้อมูล hole data
         const result = await erpConn.query(`
             select partnum,FW,NO,Hole,HoleL,HoleN,PTH,TsoDow,LianKong,ldhole,Slow,TsoLength,offset 
@@ -26,11 +26,11 @@ exports.getErp_yspartnum = async (partnum, revision, layer) => {
             from prodbasic a(nolock), numoflayer b(nolock)
             where a.partnum = '${partnum}' and a.revision = '${revision}' and a.layer=b.layer
         `);
-            
-        return { 
+
+        return {
             success: true,
-            holeData: result, 
-            dtldata: result2 
+            holeData: result,
+            dtldata: result2
         };
 
     } catch (error) {
@@ -49,7 +49,7 @@ exports.getErp_yssearh = async (partnum, revision, layer) => {
     try {
         // 🔌 เปิดการเชื่อมต่อใหม่
         erpConn = await createErpConnection();
-        
+
         // 📊 Query: ดึงข้อมูลการค้นหา
         const result = await erpConn.query(`
             SELECT t1.PART_NBR AS 'Partnum', t1.REVISION AS 'Foreword', t1.LAYER AS 'Layer',
@@ -72,12 +72,12 @@ exports.getErp_yssearh = async (partnum, revision, layer) => {
             WHERE t1.PART_NBR='${partnum}' and t1.REVISION='${revision}' and t1.LAYER='${layer}' 
             ORDER BY t1.PART_NBR
         `);
-        
-        
-        return { 
+
+
+        return {
             success: true,
             holeData: result
-            
+
         };
 
     } catch (error) {
@@ -92,14 +92,14 @@ exports.getErp_yssearh = async (partnum, revision, layer) => {
 };
 
 
-exports.getErp_yssearh_detail = async (partnum, revision, layer, type,version) => {
+exports.getErp_yssearh_detail = async (partnum, revision, layer, type, version) => {
     let erpConn = null;
     try {
         // 🔌 เปิดการเชื่อมต่อใหม่
         erpConn = await createErpConnection();
-        
+
         // 📊 Query: ดึงข้อมูลการค้นหา
- const ysdetail = await erpConn.query(`
+        const ysdetail = await erpConn.query(`
           SELECT t1.PART_NBR AS 'Partnum', t1.REVISION AS 'Foreword', n.LayerName,t1.KIND AS 'Type',t1.VERSION,n.LayerName,
                    t1.OUT_L AS 'Cutting Length', t1.OUT_W AS 'Cutting Width', 
                    t1.MHX1 AS 'MH-X1', t1.MHY1 AS 'MH-Y1', t1.MHX2 AS 'MH-X2', t1.MHY2 AS 'MH-Y2',
@@ -120,9 +120,9 @@ exports.getErp_yssearh_detail = async (partnum, revision, layer, type,version) =
 			LEFT JOIN prodbasic b WITH (NOLOCK) ON t1.PART_NBR = b.Partnum and t1.REVISION = b.Revision AND t1.LAYER = b.Layer
           where t1.PART_NBR='${partnum}' and t1.REVISION='${revision}' and t1.LAYER='${layer}' and t1.KIND='${type}' and t1.VERSION='${version}'
           order by t1.PART_NBR
-        `);      
-        
-const yfdrilldata = await erpConn.query(`
+        `);
+
+        const yfdrilldata = await erpConn.query(`
             SELECT 
                 a.ITEM AS 'Number',
                 a.B_DIAMETER AS 'Hole Diameter',
@@ -145,7 +145,7 @@ const yfdrilldata = await erpConn.query(`
                 AND a.VERSION = '${version}'
             ORDER BY a.ITEM
         `);
-const wodrilldata = await erpConn.query(`
+        const wodrilldata = await erpConn.query(`
           SELECT a.FW As 'Process',NO AS 'Code', a.Hole AS 'Complete aperture',a.HOleL AS 'HoleDiameter', a.PTH,a.LDHole AS 'Laser drilling',a.TsoDow AS 'Slot Cutter',
 a.LianKong AS 'ConnectHole',a.Slow,a.TsoLength AS 'Slot Length',a.Offset, a.HoleN AS 'Number of Holes' FROM prodhole a WITH (NOLOCK) 
 RIGHT JOIN  dl_drilmst b WITH (NOLOCK) ON a.PartNum = b.PART_NBR 
@@ -155,11 +155,11 @@ RIGHT JOIN  dl_drilmst b WITH (NOLOCK) ON a.PartNum = b.PART_NBR
                 AND b.LAYER = '${layer}'
         `);
 
-        return { 
+        return {
             success: true,
             yellowdetail: ysdetail,
             yellowdrilldata: yfdrilldata,
-            workorderdrilldata: wodrilldata,          
+            workorderdrilldata: wodrilldata,
         };
 
     } catch (error) {
@@ -172,3 +172,13 @@ RIGHT JOIN  dl_drilmst b WITH (NOLOCK) ON a.PartNum = b.PART_NBR
         }
     }
 };
+
+exports.generateYellowsheetReport = async () => {
+    try {
+        const report = await generateDemoReport();
+        return report;
+    } catch (error) {
+        console.error('Error generating yellowsheet report:', error);
+        throw new Error('Failed to generate report');
+    }
+} 
