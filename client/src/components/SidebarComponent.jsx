@@ -33,6 +33,8 @@ import { mt_processNav } from "../modules/mastersdata/process/process.routes";
 import { mt_productNav } from "../modules/mastersdata/products/product.route";
 import { yellowsheetNav } from "../modules/yellowsheets/yellowsheet.routes";
 
+import LOGO from "../assets/images/UniLogo.png";
+
 const { Sider } = Layout;
 const { Text } = Typography;
 
@@ -139,12 +141,12 @@ export default function SidebarComponent({ collapsed, onCollapse, isMobile }) {
             <div>
               {!collapsed ? (
                 <>
-                  <img src="/logo.gif" alt="UTTH MES Logo" className="h-8" />
+                  <img src={LOGO} alt="UTTH ERP Logo" className="h-8" />
                 </>
               ) : (
                 <>
                   <img
-                    src="/logo.ico"
+                    src={LOGO}
                     className={`opacity-80 ${
                       collapsed
                         ? "mx-auto text-red-500"

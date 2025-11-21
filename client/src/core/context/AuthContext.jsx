@@ -10,8 +10,8 @@ const AuthLoading = () => (
     <div className="text-center auth-loading-container">
       <div className="mb-8">
 
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">UTTH MES</h2>
-        <p className="text-gray-600">Manufacturing Execution System</p>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">UTTH ERP</h2>
+        <p className="text-gray-600">Enterprise Resource Planning System</p>
       </div>
 
       <div className="relative">

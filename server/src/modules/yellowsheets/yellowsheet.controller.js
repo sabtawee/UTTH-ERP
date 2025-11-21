@@ -41,3 +41,14 @@ exports.getErp_yssearh_detail = async (req, res) => {
         res.status(500).json({ error: 'Internal server error' });
     }
 };
+
+exports.getRepostSearchYellowsheet = async (req, res) => {
+    try {
+        const report = await service.generateYellowsheetReport();
+        res.setHeader('Content-Type', 'application/pdf');
+        res.send(report);
+    } catch (error) {
+        console.error('Error generating yellowsheet report:', error);
+        res.status(500).json({ error: 'Failed to generate report' });
+    }
+};

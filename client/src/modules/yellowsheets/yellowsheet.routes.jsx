@@ -87,20 +87,20 @@ export const yellowsheetNav = [
         icon : <FileTextOutlined />,
         label : 'yellowdrillholedata_management',
         path : '/yellowsheets/yellowsheet',
-        permission : 'Yellowsheet.view'
+        permission : ''
     },
     {
         key : 'parameter-maintenance',
         icon : <FileTextOutlined />,
         label : 'parameter_maintenance',
         path : '/yellowsheets/parameter-maintenance',
-        permission : 'Yellowsheet.view'
+        permission : ''
     },
     {
         key : 'report-management',
         icon : <FileTextOutlined />,
         label : 'report_management',
         path : '/yellowsheets/report-management',
-        permission : 'Yellowsheet.view'
+        permission : ''
     },
 ];

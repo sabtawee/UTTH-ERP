@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Input, Button, Card, message, Spin } from "antd";
 import { useAuth } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
+import LOGO from "../../assets/images/UniLogo.png";
 
 // Beautiful Login Loading Component
 const LoginLoading = () => {
@@ -76,8 +77,10 @@ const LoginLoading = () => {
 
 export default function LoginPage() {
   const { login, isLoading } = useAuth();
-  const [email, setEmail] = useState("superadmin@yourdomain.com");
-  const [password, setPassword] = useState("SuperSecret123");
+  // const [email, setEmail] = useState("superadmin@yourdomain.com");
+  // const [password, setPassword] = useState("SuperSecret123");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [showLoginForm, setShowLoginForm] = useState(false);
   const navigate = useNavigate();
@@ -132,9 +135,9 @@ export default function LoginPage() {
     <div className="min-h-screen flex justify-center items-center bg-gradient-to-br from-blue-50 via-indigo-50 to-purple-50">
       <div className="w-full max-w-md mx-4 animate-fadeIn">
         <div className="text-center mb-8">
-          <div className="w-20 h-20 mx-auto mb-4 relative">
+          <div className="w-30 h-30 mx-auto mb-4 relative">
             <img
-              src="/logo.gif"
+              src={LOGO}
               alt="UTTH Logo"
               className="w-full h-full object-contain"
             />
@@ -157,7 +160,7 @@ export default function LoginPage() {
           }}
         >
           <Input
-            placeholder="Email"
+            placeholder="Name"
             className="mb-4 h-12"
             value={email}
             onChange={(e) => setEmail(e.target.value)}

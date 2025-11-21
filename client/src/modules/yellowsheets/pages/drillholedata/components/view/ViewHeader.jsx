@@ -1,9 +1,9 @@
 import React from 'react';
 import { Card, Typography, Button, Space, Avatar } from 'antd';
-import { 
-    ArrowLeftOutlined, 
-    EditOutlined, 
-    PrinterOutlined, 
+import {
+    ArrowLeftOutlined,
+    EditOutlined,
+    PrinterOutlined,
     DownloadOutlined,
     EyeOutlined,
     DatabaseOutlined
@@ -12,12 +12,12 @@ import { useTranslation } from 'react-i18next';
 
 const { Title, Text } = Typography;
 
-export default function ViewHeader({ 
-    drillholeData, 
-    onBack, 
-    onEdit, 
-    onPrint, 
-    onExport 
+export default function ViewHeader({
+    drillholeData,
+    onBack,
+    onEdit,
+    onPrint,
+    onExport
 }) {
     const { t } = useTranslation();
 
@@ -27,8 +27,8 @@ export default function ViewHeader({
         <Card className="mb-6 shadow-lg border-0" style={{ borderRadius: '16px' }}>
             <div className="flex justify-between items-center">
                 <div className="flex items-center space-x-4">
-                    <Avatar 
-                        size={64} 
+                    <Avatar
+                        size={64}
                         style={{ backgroundColor: '#13c2c2' }}
                         icon={<DatabaseOutlined />}
                     />
@@ -42,6 +42,16 @@ export default function ViewHeader({
                         </Text>
                     </div>
                 </div>
+                {/* Print button or functionality can be added here */}
+                <Button
+                    type="default"
+                    icon={<PrinterOutlined />}
+                    onClick={onPrint}
+                    size='large'
+                    className="ml-4 shadow-md bg-ring-50 text-red-600 hover:bg-red-100"
+                >
+                    {t('yellowsheet.print')}
+                </Button>
             </div>
         </Card>
     );

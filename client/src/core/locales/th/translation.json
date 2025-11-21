@@ -219,6 +219,11 @@
     "search_placeholder": "ค้นหาด้วยหมายเลขชิ้นส่วน ลูกค้า หรือประเภท...",
     "cutting": " ขนาดการตัด",
     "program_zero_mh": "โปรแกรมจุดศูนย์ & รูติดตั้ง",
+    "generating_report": "กำลังสร้างรายงาน...",
+    "report_generated_success": "สร้างรายงานสำเร็จแล้ว! กำลังเปิดตัวอย่าง...",
+    "download_pdf": "ดาวน์โหลด PDF",
+    "popup_blocked": "ป๊อปอัพถูกบล็อก! กำลังดาวน์โหลดโดยตรง...",
+    "report_generation_failed": "การสร้างรายงานล้มเหลว",
     "steps": {
       "basic_info": "ข้อมูลพื้นฐาน",
       "drilling_data": "ข้อมูลการเจาะ",
@@ -226,6 +231,7 @@
     },
     "form": {
       "general_info": "ข้อมูลทั่วไป",
+      "close": "ปิด",
       "technical_info": "ข้อมูลทางเทคนิค",
       "program_info": "ข้อมูลโปรแกรม",
       "remarks_status": "หมายเหตุและสถานะ",
